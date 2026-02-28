@@ -413,6 +413,80 @@ body {
 .text-muted { color: var(--text-muted); }
 a { color: var(--teal); }
 a:hover { color: var(--teal-dark); }
+
+/* ===== NEWS ARTICLE ===== */
+.article {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+.article-kicker {
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--coral); margin-bottom: 8px;
+}
+.article h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 26px; line-height: 1.3; color: var(--text);
+  margin-bottom: 6px;
+}
+.article .article-dek {
+  font-size: 17px; color: var(--text-light); line-height: 1.5;
+  margin-bottom: 16px; font-style: italic;
+}
+.article .article-byline {
+  font-size: 13px; color: var(--text-muted); margin-bottom: 24px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.article .article-body p {
+  font-size: 16px; line-height: 1.75; color: var(--text);
+  margin-bottom: 16px;
+}
+.article .article-body p:first-child::first-letter {
+  font-family: 'Merriweather', serif;
+  font-size: 3.2em; float: left; line-height: 0.8;
+  margin: 4px 8px 0 0; color: var(--teal-dark); font-weight: 700;
+}
+.article .pull-quote {
+  border-left: 4px solid var(--coral);
+  padding: 16px 24px; margin: 24px 0;
+  background: var(--coral-light); border-radius: 0 10px 10px 0;
+}
+.article .pull-quote p {
+  font-family: 'Merriweather', serif;
+  font-size: 18px; line-height: 1.5; color: var(--text);
+  margin: 0; font-style: italic;
+}
+.article .article-body h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 19px; color: var(--teal-dark);
+  margin: 28px 0 12px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.article .article-body strong { color: var(--text); }
+.article .article-body ul {
+  margin: 12px 0 16px 20px; font-size: 16px; line-height: 1.75; color: var(--text);
+}
+.article .article-body li { margin-bottom: 6px; }
+.article .article-cta {
+  background: var(--teal-bg); border: 2px solid var(--teal);
+  border-radius: 12px; padding: 20px; margin-top: 28px; text-align: center;
+}
+.article .article-cta p {
+  font-size: 15px; margin-bottom: 10px; color: var(--text);
+}
+.article .article-cta a.cta-btn {
+  display: inline-block; background: var(--teal); color: var(--white);
+  padding: 10px 24px; border-radius: 99px; font-weight: 600;
+  font-size: 14px; text-decoration: none; transition: background .2s;
+}
+.article .article-cta a.cta-btn:hover { background: var(--teal-dark); color: var(--white); }
+@media (max-width: 840px) {
+  .article { padding: 24px 18px; }
+  .article h2 { font-size: 22px; }
+}
 </style>
 </head>
 <body>
@@ -441,6 +515,7 @@ a:hover { color: var(--teal-dark); }
 <aside class="sidebar" id="sidebar">
   <nav>
     <a href="#welcome" class="active"><span class="nav-icon">&#127968;</span> Welcome</a>
+    <a href="#story"><span class="nav-icon">&#128240;</span> The Story</a>
     <a href="#decision"><span class="nav-icon">&#129517;</span> Decision Guide</a>
     <a href="#district"><span class="nav-icon">&#127979;</span> District Overview</a>
     <a href="#schools"><span class="nav-icon">&#128218;</span> School Guide</a>
@@ -473,6 +548,62 @@ a:hover { color: var(--teal-dark); }
     <div class="hero-tip"><strong>Take Action</strong> The Action Plan checklist saves your progress &mdash; check off items as you go.</div>
     <div class="hero-tip"><strong>Know Your Rights</strong> Every template and legal citation you need is in the Rights &amp; IEP Toolkit sections.</div>
   </div>
+</section>
+
+<!-- ===== THE STORY ===== -->
+<section class="section" id="story">
+<div class="article">
+  <div class="article-kicker">Investigation</div>
+  <h2>A Small District With Big Gaps: What El Segundo Isn&rsquo;t Telling Parents About Autism Services</h2>
+  <div class="article-dek">El Segundo Unified scores well on state tests and ranks in California&rsquo;s top 100 high schools. But behind the high marks, families of autistic children face a system with almost no specialized programming &mdash; and little public information about what&rsquo;s actually available.</div>
+  <div class="article-byline">Research compiled February 2026 &bull; Based on public records, state data, and OAH filings</div>
+
+  <div class="article-body">
+    <p>When parents in El Segundo learn their child is on the autism spectrum, the first thing they do is Google the school district. What they find is reassuring: strong test scores, a #105 state ranking for the high school, and a tight-knit community of 3,500 students across five schools. What they don&rsquo;t find is any public information about how the district serves autistic students &mdash; because almost none exists.</p>
+
+    <p>A review of ESUSD&rsquo;s website, state compliance databases, and public filings reveals a district that performs well by general measures but offers <strong>no documented autism-specific classrooms, no publicly listed BCBAs (Board Certified Behavior Analysts), and no visible specialized programming</strong> for the estimated 10-13% of its students who have disabilities.</p>
+
+    <p>This isn&rsquo;t necessarily unusual for a small district. But it has consequences. And understanding those consequences is the entire purpose of this guide.</p>
+
+    <div class="pull-quote">
+      <p>&ldquo;The district may be adequate for a child who can sit in a general education classroom with some accommodations. But for a child who needs real autism expertise? There&rsquo;s simply no evidence it exists here.&rdquo;</p>
+    </div>
+
+    <h3>The Numbers Behind the Silence</h3>
+
+    <p>ESUSD received <strong>$2.9 million in special education funding</strong> for 2025-26, a 25% increase over the prior year. The district belongs to the Southwest SELPA, a consortium of 12 districts overseen by LACOE that collectively serves 13,000 students with disabilities. But being part of a large SELPA doesn&rsquo;t mean El Segundo has large-district resources.</p>
+
+    <p>Compare the landscape:</p>
+    <ul>
+      <li><strong>Torrance USD</strong> (22,000 students) operates its own SELPA, runs multiple autism-specific special day classes, and employs dedicated behavior analysts. It is 15 minutes away.</li>
+      <li><strong>ESUSD</strong> (3,500 students) shares a SELPA with 11 other districts and publishes nothing about autism-specific services on its website.</li>
+    </ul>
+
+    <p>When a small district can&rsquo;t serve a student&rsquo;s needs in-house, the law requires it to fund placement at a non-public school &mdash; sometimes 25 miles away, in Sherman Oaks or Culver City. That&rsquo;s a legal right, but it means your child leaves the neighborhood school. For some families, that&rsquo;s the right answer. For others, it&rsquo;s a last resort they never saw coming.</p>
+
+    <h3>Two Cases Where the District Went to Court &mdash; Against Parents</h3>
+
+    <p>Public records from the Office of Administrative Hearings reveal two due process cases involving ESUSD &mdash; and in both, <strong>the district was the one who filed against the parents</strong>, not the other way around. In the 2023 case, ESUSD went to hearing to force assessment of a student whose parents had refused consent. The district won.</p>
+
+    <p>This is unusual. The vast majority of due process cases nationally are filed by parents. That ESUSD files against families suggests a district that takes identification seriously &mdash; but also one willing to use the legal system when parents push back. It&rsquo;s a signal worth paying attention to.</p>
+
+    <h3>What This Means for Your Family</h3>
+
+    <p>None of this means ESUSD is a bad district. It means it&rsquo;s a <strong>small district</strong>, and small districts have structural limitations that matter enormously when your child has specialized needs. The difference between a good outcome and a bad one often comes down to three things:</p>
+    <ul>
+      <li><strong>How well you understand your rights</strong> before the first IEP meeting</li>
+      <li><strong>Whether you layer services</strong> from the district, Regional Center, and insurance simultaneously</li>
+      <li><strong>How early you act</strong> &mdash; waiting for problems to surface means you&rsquo;re already behind</li>
+    </ul>
+
+    <p>That&rsquo;s why this guide exists. Below you&rsquo;ll find every school profiled with autism-specific analysis, every legal right with citations, every provider with contact info, and a step-by-step action plan you can start today. The information gap between the district and parents is real. This guide closes it.</p>
+
+    <div class="article-cta">
+      <p><strong>Ready to take action?</strong> Start with the Decision Guide to find the right path for your child&rsquo;s support level.</p>
+      <a href="#decision" class="cta-btn">Go to Decision Guide</a>
+    </div>
+  </div>
+</div>
 </section>
 
 <!-- ===== SECTION: DECISION GUIDE ===== -->
