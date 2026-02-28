@@ -1,0 +1,2482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Guide to Special Education in El Segundo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal: #2b8a7e;
+  --teal-dark: #1f6e64;
+  --teal-light: #e6f5f3;
+  --teal-bg: #f0faf8;
+  --cream: #fdf8f4;
+  --cream-dark: #f5ede4;
+  --coral: #e8735a;
+  --coral-dark: #d4604a;
+  --coral-light: #fef0ec;
+  --amber: #e9a84c;
+  --amber-light: #fef7ea;
+  --text: #2d3748;
+  --text-light: #5a6577;
+  --text-muted: #8492a6;
+  --border: #e2e8f0;
+  --white: #ffffff;
+  --red-light: #fef2f2;
+  --red: #e53e3e;
+  --green-light: #f0fff4;
+  --green: #38a169;
+  --purple-light: #f5f3ff;
+  --purple: #6b46c1;
+  --sidebar-w: 260px;
+  --header-h: 56px;
+  --contact-h: 44px;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + var(--contact-h) + 16px); }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* ===== CONTACT BAR ===== */
+.contact-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--contact-h);
+  background: var(--teal-dark);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center; gap: 24px;
+  font-size: 13px; font-weight: 500;
+  padding: 0 16px;
+  flex-wrap: wrap;
+}
+.contact-bar a {
+  color: var(--white); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 10px; border-radius: 99px;
+  background: rgba(255,255,255,0.13);
+  transition: background .2s;
+}
+.contact-bar a:hover { background: rgba(255,255,255,0.25); }
+.contact-bar .label { opacity: 0.8; }
+
+/* ===== HEADER ===== */
+.header {
+  position: fixed; top: var(--contact-h); left: 0; right: 0; z-index: 999;
+  height: var(--header-h);
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.header-title {
+  font-family: 'Merriweather', serif;
+  font-size: 17px; font-weight: 700; color: var(--teal-dark);
+}
+.hamburger {
+  display: none; background: none; border: none; cursor: pointer; padding: 8px;
+  color: var(--text);
+}
+.hamburger svg { display: block; }
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: calc(var(--contact-h) + var(--header-h));
+  left: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 20px 0;
+  z-index: 998;
+  transition: transform .3s ease;
+}
+.sidebar nav a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 20px;
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 13.5px; font-weight: 500;
+  border-left: 3px solid transparent;
+  transition: all .15s;
+}
+.sidebar nav a:hover { background: var(--teal-light); color: var(--teal-dark); }
+.sidebar nav a.active {
+  background: var(--teal-light); color: var(--teal);
+  border-left-color: var(--teal); font-weight: 600;
+}
+.sidebar nav a .nav-icon { font-size: 16px; flex-shrink: 0; }
+.sidebar .progress-box {
+  margin: 16px 16px 0; padding: 14px;
+  background: var(--teal-bg); border-radius: 10px;
+}
+.sidebar .progress-box h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--teal-dark); margin-bottom: 8px; }
+.progress-track { height: 8px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--teal); border-radius: 99px; transition: width .4s ease; }
+.progress-label { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+/* ===== MAIN ===== */
+.main {
+  margin-left: var(--sidebar-w);
+  margin-top: calc(var(--contact-h) + var(--header-h));
+  padding: 32px 40px 80px;
+  max-width: 960px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 48px 40px;
+  margin-bottom: 32px;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+}
+.hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 28px; line-height: 1.35; margin-bottom: 12px;
+}
+.hero p { font-size: 16px; opacity: 0.92; max-width: 600px; line-height: 1.6; }
+.hero .badge {
+  display: inline-block; margin-top: 16px;
+  background: rgba(255,255,255,0.18); padding: 6px 14px;
+  border-radius: 99px; font-size: 12px; font-weight: 600;
+  letter-spacing: .03em;
+}
+.hero-tips { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.hero-tip {
+  background: rgba(255,255,255,0.12); border-radius: 10px; padding: 10px 14px;
+  font-size: 13px; line-height: 1.4;
+}
+.hero-tip strong { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; opacity: 0.8; }
+
+/* ===== SECTION ===== */
+.section { margin-bottom: 32px; }
+.section-title {
+  font-family: 'Merriweather', serif;
+  font-size: 22px; color: var(--teal-dark);
+  margin-bottom: 16px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--teal-light);
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: box-shadow .2s;
+}
+.card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.card-header {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  user-select: none;
+}
+.card-header h3 {
+  font-size: 15px; font-weight: 600; color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+}
+.card-header .chevron {
+  transition: transform .25s;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+.card.open .card-header .chevron { transform: rotate(180deg); }
+.card-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .35s ease;
+}
+.card.open .card-body { max-height: 20000px; }
+.card-content {
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--border);
+}
+.card-content p { margin: 10px 0; color: var(--text-light); font-size: 14px; }
+.card-content ul, .card-content ol { margin: 10px 0 10px 20px; color: var(--text-light); font-size: 14px; }
+.card-content li { margin-bottom: 6px; }
+.card-content h4 { font-size: 14px; color: var(--teal-dark); margin: 16px 0 6px; font-weight: 600; }
+.card-content strong { color: var(--text); }
+
+/* ===== DATA TABLES ===== */
+.data-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13.5px; }
+.data-table th {
+  background: var(--teal-light); color: var(--teal-dark);
+  text-align: left; padding: 10px 14px; font-weight: 600; font-size: 12.5px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-light); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--cream); }
+
+/* ===== RATING BADGES ===== */
+.rating { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600; }
+.rating-strong { background: var(--green-light); color: var(--green); }
+.rating-moderate { background: var(--amber-light); color: #b97a1e; }
+.rating-weak { background: var(--red-light); color: var(--red); }
+.rating-unknown { background: #f0f0f0; color: var(--text-muted); }
+
+/* ===== SCHOOL COMPARISON ===== */
+.comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
+.school-card {
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 12px; padding: 20px; transition: border-color .2s;
+}
+.school-card:hover { border-color: var(--teal); }
+.school-card h4 { font-size: 16px; color: var(--teal-dark); margin-bottom: 4px; }
+.school-card .grade-badge {
+  font-size: 11px; background: var(--teal-light); color: var(--teal);
+  padding: 2px 8px; border-radius: 99px; font-weight: 600;
+  display: inline-block; margin-bottom: 12px;
+}
+.school-card .stat { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.school-card .stat:last-child { border-bottom: none; }
+.school-card .stat-label { color: var(--text-muted); }
+.school-card .stat-value { font-weight: 600; color: var(--text); }
+
+/* ===== FLAG BOXES ===== */
+.flag-box {
+  border-radius: 10px; padding: 16px 20px; margin: 12px 0;
+}
+.flag-box.red { background: var(--red-light); border-left: 4px solid var(--red); }
+.flag-box.green { background: var(--green-light); border-left: 4px solid var(--green); }
+.flag-box.amber { background: var(--amber-light); border-left: 4px solid var(--amber); }
+.flag-box.purple { background: var(--purple-light); border-left: 4px solid var(--purple); }
+.flag-box h4 { font-size: 14px; margin-bottom: 8px; }
+.flag-box.red h4 { color: var(--red); }
+.flag-box.green h4 { color: var(--green); }
+.flag-box.amber h4 { color: #b97a1e; }
+.flag-box.purple h4 { color: var(--purple); }
+.flag-box ul { margin: 0 0 0 18px; font-size: 13.5px; color: var(--text-light); }
+.flag-box li { margin-bottom: 5px; }
+
+/* ===== SERVICE LAYERS ===== */
+.layer-stack { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+.layer {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 18px;
+}
+.layer-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--teal); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; flex-shrink: 0;
+}
+.layer-text h4 { font-size: 14px; color: var(--text); margin-bottom: 2px; }
+.layer-text p { font-size: 13px; color: var(--text-muted); margin: 0; }
+
+/* ===== ACTION PLAN / CHECKLIST ===== */
+.phase-tabs {
+  display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+}
+.phase-tab {
+  padding: 8px 18px; border-radius: 99px;
+  border: 2px solid var(--border);
+  background: var(--white); color: var(--text-light);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all .2s;
+}
+.phase-tab.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
+.phase-tab:hover:not(.active) { border-color: var(--teal); color: var(--teal); }
+
+.checklist { list-style: none; margin: 0; padding: 0; }
+.checklist li {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 16px; background: var(--white);
+  border: 1px solid var(--border); border-radius: 10px;
+  margin-bottom: 8px; cursor: pointer; transition: all .2s;
+  user-select: none;
+}
+.checklist li:hover { border-color: var(--teal); }
+.checklist li.checked { background: var(--teal-bg); border-color: var(--teal-light); }
+.checklist li.checked .check-label { text-decoration: line-through; color: var(--text-muted); }
+.check-box {
+  width: 22px; height: 22px; border-radius: 6px;
+  border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all .2s; margin-top: 1px;
+}
+.checklist li.checked .check-box {
+  background: var(--teal); border-color: var(--teal);
+}
+.check-box svg { opacity: 0; transition: opacity .2s; }
+.checklist li.checked .check-box svg { opacity: 1; }
+.check-label { font-size: 14px; color: var(--text); line-height: 1.5; }
+.check-detail { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.overall-progress {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; margin-bottom: 20px;
+}
+.overall-progress h3 { font-size: 14px; color: var(--teal-dark); margin-bottom: 10px; }
+.big-progress-track { height: 12px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.big-progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--coral)); border-radius: 99px; transition: width .5s ease; }
+.big-progress-label { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+
+/* ===== TEMPLATE BOX ===== */
+.template-box {
+  background: #f7f7f8; border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px; margin: 12px 0;
+  font-family: 'Courier New', monospace; font-size: 12.5px;
+  white-space: pre-wrap; line-height: 1.6; color: var(--text-light);
+  max-height: 400px; overflow-y: auto;
+}
+
+/* ===== TIMELINE TABLE ===== */
+.timeline-table { width: 100%; font-size: 13px; margin: 12px 0; }
+.timeline-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.timeline-table .tl-time { font-weight: 700; color: var(--teal-dark); white-space: nowrap; width: 160px; }
+
+/* ===== DECISION PATH ===== */
+.decision-path {
+  background: var(--white); border: 2px solid var(--teal); border-radius: 12px;
+  padding: 20px; margin: 12px 0;
+}
+.decision-path h4 { color: var(--teal-dark); margin-bottom: 8px; font-size: 15px; }
+.decision-path ol { margin: 8px 0 8px 20px; font-size: 14px; color: var(--text-light); }
+.decision-path li { margin-bottom: 6px; }
+
+/* ===== GOAL CATEGORY ===== */
+.goal-category { margin: 16px 0; padding: 16px; background: var(--teal-bg); border-radius: 10px; }
+.goal-category h4 { color: var(--teal-dark); margin-bottom: 8px; }
+.goal-category ul { margin: 0 0 0 18px; font-size: 13.5px; color: var(--text-light); }
+.goal-category li { margin-bottom: 8px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--teal-dark); color: rgba(255,255,255,0.85);
+  padding: 40px; border-radius: 16px; margin-top: 40px;
+  font-size: 13px;
+}
+.footer h3 { color: var(--white); font-size: 18px; margin-bottom: 16px; font-family: 'Merriweather', serif; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.footer-col h4 { color: var(--amber); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+.footer-col a { color: rgba(255,255,255,0.8); text-decoration: none; display: block; padding: 3px 0; font-size: 13px; }
+.footer-col a:hover { color: var(--white); }
+.footer-note { margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 12px; opacity: 0.7; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 840px) {
+  .sidebar { transform: translateX(-100%); width: 280px; }
+  .sidebar.open { transform: translateX(0); box-shadow: 4px 0 20px rgba(0,0,0,0.15); }
+  .main { margin-left: 0; padding: 24px 16px 60px; }
+  .hamburger { display: block; }
+  .hero { padding: 32px 24px; }
+  .hero h1 { font-size: 22px; }
+  .contact-bar { font-size: 11px; gap: 8px; height: auto; padding: 6px 10px; min-height: var(--contact-h); }
+  .comparison-grid { grid-template-columns: 1fr; }
+  .hero-tips { grid-template-columns: 1fr; }
+}
+
+.overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.3); z-index: 997;
+}
+.overlay.show { display: block; }
+
+/* ===== PRINT ===== */
+@media print {
+  .contact-bar, .header, .sidebar, .hamburger, .overlay, .phase-tabs { display: none !important; }
+  .main { margin: 0; padding: 20px; max-width: 100%; }
+  .card-body { max-height: none !important; }
+  .hero { break-inside: avoid; }
+  body { font-size: 12px; background: white; }
+  .card, .school-card, .flag-box, .layer { break-inside: avoid; }
+}
+
+/* ===== MISC ===== */
+.hidden { display: none; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.text-sm { font-size: 13px; }
+.text-muted { color: var(--text-muted); }
+a { color: var(--teal); }
+a:hover { color: var(--teal-dark); }
+</style>
+</head>
+<body>
+
+<!-- ===== CONTACT BAR ===== -->
+<div class="contact-bar">
+  <a href="tel:3106152650"><span class="label">ESUSD SpEd:</span> (310) 615-2650</a>
+  <a href="tel:3105401711"><span class="label">Harbor RC:</span> (310) 540-1711</a>
+  <a href="tel:3106805770"><span class="label">SW SELPA:</span> (310) 680-5770</a>
+  <a href="tel:8007765746"><span class="label">Disability Rights CA:</span> (800) 776-5746</a>
+</div>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Toggle menu">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <div class="header-title">El Segundo SPED Guide</div>
+  <div style="font-size:12px;color:var(--text-muted);">Feb 2026</div>
+</div>
+
+<!-- ===== OVERLAY ===== -->
+<div class="overlay" onclick="toggleSidebar()"></div>
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <a href="#welcome" class="active"><span class="nav-icon">&#127968;</span> Welcome</a>
+    <a href="#decision"><span class="nav-icon">&#129517;</span> Decision Guide</a>
+    <a href="#district"><span class="nav-icon">&#127979;</span> District Overview</a>
+    <a href="#schools"><span class="nav-icon">&#128218;</span> School Guide</a>
+    <a href="#compliance"><span class="nav-icon">&#128202;</span> Compliance &amp; Data</a>
+    <a href="#alternatives"><span class="nav-icon">&#128161;</span> Alternative Options</a>
+    <a href="#rights"><span class="nav-icon">&#9878;&#65039;</span> Your Rights</a>
+    <a href="#toolkit"><span class="nav-icon">&#129520;</span> IEP Toolkit</a>
+    <a href="#advocates"><span class="nav-icon">&#129309;</span> Advocates &amp; Support</a>
+    <a href="#analysis"><span class="nav-icon">&#11088;</span> Final Analysis</a>
+    <a href="#action-plan"><span class="nav-icon">&#9989;</span> Action Plan</a>
+    <a href="#resources"><span class="nav-icon">&#128279;</span> Resources</a>
+  </nav>
+  <div class="progress-box">
+    <h4>Your Journey</h4>
+    <div class="progress-track"><div class="progress-fill" id="sidebarProgress" style="width:0%"></div></div>
+    <div class="progress-label" id="sidebarProgressLabel">0 of 18 steps done</div>
+  </div>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main class="main">
+
+<!-- HERO -->
+<section class="hero" id="welcome">
+  <h1>Your Guide to Special Education in El Segundo</h1>
+  <p>Navigating the system for your child on the autism spectrum can feel overwhelming. This guide organizes everything you need &mdash; district info, school comparisons, your rights, IEP tools, and a step-by-step action plan &mdash; all in one place.</p>
+  <div class="badge">&#128218; 6 Research Documents &bull; Personalized for El Segundo Families</div>
+  <div class="hero-tips">
+    <div class="hero-tip"><strong>Start Here</strong> Use the Decision Guide to find your path based on your child's support level.</div>
+    <div class="hero-tip"><strong>Take Action</strong> The Action Plan checklist saves your progress &mdash; check off items as you go.</div>
+    <div class="hero-tip"><strong>Know Your Rights</strong> Every template and legal citation you need is in the Rights &amp; IEP Toolkit sections.</div>
+  </div>
+</section>
+
+<!-- ===== SECTION: DECISION GUIDE ===== -->
+<section class="section" id="decision">
+  <h2 class="section-title">Decision Guide: Which Path Is Right for Your Child?</h2>
+
+  <div class="card open">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#129517;</span> Understanding Support Levels</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>ESUSD's ability to serve your child depends heavily on their support level. Here is an honest assessment:</p>
+      <div class="flag-box green">
+        <h4>Level 1 / Milder Support Needs</h4>
+        <ul>
+          <li>Can participate in a general education classroom with accommodations and pull-out services</li>
+          <li>May need support with social skills, sensory processing, executive functioning</li>
+          <li>Can manage transitions with advance notice and visual supports</li>
+          <li><strong>ESUSD is likely adequate.</strong> The small district means teachers will know your child personally. The community is engaged.</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Level 2-3 / Significant Support Needs</h4>
+        <ul>
+          <li>Needs dedicated autism classroom (SDC) or intensive behavioral support</li>
+          <li>May need 1:1 aide, BCBA consultation, specialized communication support</li>
+          <li>Significant challenges with general education environment even with supports</li>
+          <li><strong>ESUSD may struggle.</strong> The district does not appear to operate dedicated autism classrooms. Its small size limits specialized programs. The district would likely need to place your child at a non-public school (NPS) at district expense, or you will need to advocate aggressively.</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card open">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128204;</span> Your Path Based on Support Level</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="decision-path">
+        <h4>If Your Child Has Milder Needs (Level 1)</h4>
+        <ol>
+          <li>Enroll in ESUSD &mdash; ask the Director of Special Education which campus has the stronger SpEd team</li>
+          <li>Submit a written assessment request immediately (template in Rights section)</li>
+          <li>Build a strong IEP with autism-specific goals (see IEP Toolkit)</li>
+          <li>Layer services: school IEP + Regional Center + insurance-funded ABA</li>
+          <li>Monitor closely during transitions (especially to middle school)</li>
+          <li>If progress stalls, request an IEE and consider more intensive supports</li>
+        </ol>
+      </div>
+      <div class="decision-path">
+        <h4>If Your Child Has Significant Needs (Level 2-3)</h4>
+        <ol>
+          <li>Contact ESUSD SpEd Director and ask directly: &ldquo;Do you have an autism-specific SDC? Do you employ BCBAs?&rdquo;</li>
+          <li>If the answer is no &mdash; ask about NPS placement options (district pays)</li>
+          <li>Consult a special education attorney or advocate BEFORE the first IEP meeting</li>
+          <li>Consider NPS schools: The Help Group, Kayne ERAS, Carousel School (see Alternatives section)</li>
+          <li>Contact Harbor Regional Center immediately for additional services</li>
+          <li>If the district resists appropriate placement, know your dispute resolution options (see Rights section)</li>
+        </ol>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127919;</span> Grade-Level Recommendation Summary</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Grade</th><th>Mild Needs</th><th>Significant Needs</th><th>Key Risk</th></tr></thead>
+        <tbody>
+          <tr><td><strong>K-5</strong></td><td>ESUSD elementary (Center St. slightly preferred for smaller size)</td><td>Likely needs NPS (Kayne ERAS, Carousel)</td><td>Transition to middle school</td></tr>
+          <tr><td><strong>6-8</strong></td><td>ESUSD Middle with strong IEP; begin transition planning in 4th-5th grade</td><td>NPS or smaller alternative school</td><td>Social dynamics, bullying, executive demands</td></tr>
+          <tr><td><strong>9-12</strong></td><td>ESHS if academically capable; Da Vinci for project-based learners</td><td>NPS (The Help Group Village Glen/STEM3); Da Vinci RISE</td><td>Self-advocacy, transition planning, large campus</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: DISTRICT OVERVIEW ===== -->
+<section class="section" id="district">
+  <h2 class="section-title">District Overview</h2>
+
+  <div class="card open">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127979;</span> District at a Glance</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <tr><td><strong>District</strong></td><td>El Segundo Unified School District (ESUSD)</td></tr>
+        <tr><td><strong>Location</strong></td><td>El Segundo, CA (South Bay, Los Angeles County)</td></tr>
+        <tr><td><strong>CDS Code</strong></td><td>19-64535</td></tr>
+        <tr><td><strong>Total Enrollment</strong></td><td>~3,563 students (K-12)</td></tr>
+        <tr><td><strong>Schools</strong></td><td>5 (2 elementary, 1 middle, 1 high school, 1 continuation)</td></tr>
+        <tr><td><strong>Student-Teacher Ratio</strong></td><td>~24-25 to 1</td></tr>
+        <tr><td><strong>Minority Enrollment</strong></td><td>60%</td></tr>
+        <tr><td><strong>SELPA</strong></td><td>Southwest SELPA (administered by LACOE)</td></tr>
+        <tr><td><strong>SpEd Enrollment</strong></td><td>~10-13% (CA average: 13-14%)</td></tr>
+        <tr><td><strong>SpEd Funding (2025-26)</strong></td><td>$2,913,430 (projected) &mdash; up ~25% from prior year</td></tr>
+      </table>
+      <h4>Academic Performance (District-Wide)</h4>
+      <table class="data-table">
+        <thead><tr><th>Level</th><th>Reading Proficiency</th><th>Math Proficiency</th></tr></thead>
+        <tbody>
+          <tr><td>Elementary</td><td>76%</td><td>77%</td></tr>
+          <tr><td>Middle School</td><td>73%</td><td>65%</td></tr>
+          <tr><td>High School</td><td>79%</td><td>65%</td></tr>
+        </tbody>
+      </table>
+      <p>High school graduation rate: 86.5% | College readiness index: 63</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128101;</span> Southwest SELPA &mdash; What Is It and How It Works</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>A <strong>Special Education Local Plan Area (SELPA)</strong> is a consortium of school districts that jointly provide special education services. California requires every district to belong to a SELPA. The SELPA determines how funding is allocated, coordinates regionalized programs, and files performance reports with CDE.</p>
+      <p>ESUSD is a member of the <strong>Southwest SELPA</strong>, a multi-district SELPA administered by LACOE serving <strong>12 school districts and 5 charter schools</strong> with over <strong>13,000 students with disabilities</strong>.</p>
+      <table class="data-table">
+        <tr><td><strong>Administering Agency</strong></td><td>Los Angeles County Office of Education (LACOE)</td></tr>
+        <tr><td><strong>Address</strong></td><td>10322 Condon Avenue, Lennox, CA 90304</td></tr>
+        <tr><td><strong>Phone</strong></td><td><a href="tel:3106805770">(310) 680-5770</a></td></tr>
+        <tr><td><strong>Website</strong></td><td><a href="https://swselpa.org/" target="_blank">swselpa.org</a></td></tr>
+      </table>
+      <div class="flag-box green">
+        <h4>Advantages</h4>
+        <ul>
+          <li>Access to regionalized programs operated across member districts</li>
+          <li>SELPA Family Resource Center provides parent support and workshops</li>
+          <li>Community Advisory Committee (CAC) gives parents a voice in policy</li>
+          <li>If ESUSD cannot serve your child's needs, placement in another member district may be possible</li>
+          <li>Program specialists available to consult on IEP development and placement</li>
+          <li>Alternative Dispute Resolution (ADR) services may be available</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Limitations</h4>
+        <ul>
+          <li>ESUSD is a small district within the SELPA &mdash; limited in-house specialized programs</li>
+          <li>Funding allocated through SELPA formula; small districts may receive less flexibility</li>
+          <li>Autism-specific programs (dedicated autism SDCs, BCBA staffing) may not exist in-district</li>
+        </ul>
+      </div>
+      <p><strong>Member districts:</strong> Centinela Valley Union HSD, El Segundo USD, Hawthorne SD, Hermosa Beach City SD, Inglewood USD, Lawndale Elementary SD, Lennox SD, Manhattan Beach USD, Palos Verdes Peninsula USD, Redondo Beach USD, Torrance USD, and Wiseburn USD.</p>
+      <h4>What Different SELPAs Mean</h4>
+      <p>El Segundo is in the <strong>Southwest SELPA (LACOE-administered)</strong>, while Manhattan Beach, Hermosa Beach, and Redondo Beach are in the <strong>South Bay Consortium SELPA</strong>. Torrance has its own single-district SELPA. This means:</p>
+      <ul>
+        <li>Funding formulas differ between SELPAs</li>
+        <li>Available regionalized programs differ</li>
+        <li>Complaint and dispute resolution processes may vary</li>
+        <li>If considering inter-district transfer, SELPA boundaries affect service delivery</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#9878;&#65039;</span> Known Due Process History</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>OAH Case 2023070586 &mdash; ESUSD v. Parents (2023)</h4>
+      <p>The <strong>district filed against the parents</strong> to gain the right to assess a student in additional areas. The district prevailed. This suggests ESUSD takes identification seriously, but the adversarial approach can signal tensions.</p>
+      <h4>OAH Case 2017080191 &mdash; ESUSD v. Parent (2017)</h4>
+      <p>Again <strong>district-filed</strong> (expedited due process) involving behavioral conduct and educational placement.</p>
+      <div class="flag-box amber">
+        <h4>Pattern Analysis</h4>
+        <ul>
+          <li>In both known cases, the <strong>district was the filer</strong>, not the parent. This is relatively uncommon.</li>
+          <li>May indicate ESUSD is proactive about assessment and placement but uses the legal process when parents disagree.</li>
+          <li>Many disputes are settled before hearing &mdash; public decisions represent only a fraction of actual disputes.</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128269;</span> Specialized Programs &mdash; What to Investigate</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>ESUSD's website references &ldquo;General Information and Specialized Programs&rdquo; though specific autism-focused program details are not prominently published. Ask these questions directly:</p>
+      <ol>
+        <li>Does ESUSD operate any autism-specific special day classes (SDCs)?</li>
+        <li>Does the district employ BCBAs (Board Certified Behavior Analysts)?</li>
+        <li>What related services are available (speech, OT, counseling, adaptive PE)?</li>
+        <li>What inclusion support is available (1:1 aides, push-in specialists)?</li>
+        <li>What is the district's approach to behavioral support (FBAs, BIPs)?</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128170;</span> Key Strengths &amp; Concerns</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="flag-box green">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Small district = more personalized attention, easier to build relationships</li>
+          <li>Generally well-rated academically (above-average test scores)</li>
+          <li>Well-resourced, relatively affluent community with strong tax base</li>
+          <li>SELPA includes large districts (e.g., Torrance) with regionalized programs</li>
+          <li>Proactive on assessment (due process cases show district takes evaluation seriously)</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Concerns</h4>
+        <ul>
+          <li>Small size limits specialized programs (~3,500 students)</li>
+          <li>High student-teacher ratios (24-25:1) in general ed classrooms</li>
+          <li>Limited public transparency about special education programs</li>
+          <li>No visible autism-specific programming (no autism SDCs or BCBA staffing documented)</li>
+          <li>Potential for NPS placement if in-house programs are insufficient</li>
+          <li>Less experience with complex or high-need students than larger districts</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: SCHOOL-BY-SCHOOL GUIDE ===== -->
+<section class="section" id="schools">
+  <h2 class="section-title">School-by-School Guide</h2>
+
+  <div class="card open">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127979;</span> Elementary School Comparison</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Factor</th><th>Center Street</th><th>Richmond Street</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Grades</strong></td><td>K-5</td><td>K-5</td></tr>
+          <tr><td><strong>Enrollment</strong></td><td>~400 (smaller)</td><td>~594 (larger)</td></tr>
+          <tr><td><strong>Address</strong></td><td>700 Center St, El Segundo 90245</td><td>615 Richmond St, El Segundo 90245</td></tr>
+          <tr><td><strong>Programs</strong></td><td>STEM / Project Lead The Way, Gifted &amp; Talented</td><td>General academic focus, above state avg</td></tr>
+          <tr><td><strong>Environment</strong></td><td>Smaller, potentially calmer</td><td>More social complexity</td></tr>
+          <tr><td><strong>Student-Teacher Ratio</strong></td><td>~25:1</td><td>~24:1</td></tr>
+          <tr><td><strong>For Autism</strong></td><td><span class="rating rating-moderate">Better for sensory needs</span></td><td><span class="rating rating-moderate">More SPED resources likely</span></td></tr>
+          <tr><td><strong>Autism Programs</strong></td><td><span class="rating rating-unknown">Not documented</span></td><td><span class="rating rating-unknown">Not documented</span></td></tr>
+        </tbody>
+      </table>
+      <p><strong>Bottom line:</strong> Both elementary schools are similar in quality. Ask the district's Director of Special Education which school has more robust special education supports. Center Street may be slightly better for sensory-sensitive children due to smaller size.</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127793;</span> Center Street Elementary (K-5) &mdash; Full Profile</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="flag-box green">
+        <h4>Potential Positives for an Autistic Student</h4>
+        <ul>
+          <li>Smaller enrollment (~400) creates a more manageable social environment</li>
+          <li>STEM/Project Lead The Way focus may engage students with technical interests &mdash; a strength for many autistic children</li>
+          <li>Elementary school generally provides more structure and routine</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Potential Concerns</h4>
+        <ul>
+          <li>No publicly documented autism-specific programs or staff</li>
+          <li>Student-teacher ratio of ~25:1 is high for a child needing individualized support</li>
+          <li>Gifted &amp; Talented focus may create academically competitive environment that deprioritizes social-emotional support</li>
+          <li>Transition to middle school will require significant planning</li>
+        </ul>
+      </div>
+      <h4>Questions to Ask Center Street</h4>
+      <ol>
+        <li>Do you have any special day classes (SDCs) on campus?</li>
+        <li>How many students with IEPs are currently enrolled?</li>
+        <li>Is there a resource specialist (RSP) on campus? What does their caseload look like?</li>
+        <li>What behavioral support is available (aide support, BCBA consultation, calm-down spaces)?</li>
+        <li>How do you handle sensory needs (noise, lighting, seating)?</li>
+        <li>What social skills instruction is available?</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127793;</span> Richmond Street Elementary (K-5) &mdash; Full Profile</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="flag-box green">
+        <h4>Potential Positives for an Autistic Student</h4>
+        <ul>
+          <li>Performing above state average academically</li>
+          <li>As the larger elementary, may have slightly more special education resources</li>
+          <li>Strong parent community that may include other special needs families</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Potential Concerns</h4>
+        <ul>
+          <li>Larger enrollment (~594) means more students, more noise, more social complexity</li>
+          <li>24:1 student-teacher ratio</li>
+          <li>No publicly documented autism-specific programming</li>
+          <li>Parent reviews focus primarily on general education &mdash; limited SpEd visibility</li>
+        </ul>
+      </div>
+      <h4>Questions to Ask Richmond Street</h4>
+      <ol>
+        <li>How does the school support inclusion for students with autism?</li>
+        <li>What training have general education teachers received on autism and differentiated instruction?</li>
+        <li>Are there structured recess/lunch supports for students who struggle socially?</li>
+        <li>What is the school's approach to bullying prevention, especially for students who present differently?</li>
+        <li>Do you have any special day classes (SDCs) on campus?</li>
+        <li>How many students with IEPs are currently enrolled?</li>
+        <li>What behavioral support is available?</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#9888;&#65039;</span> El Segundo Middle School (6-8) &mdash; The Highest-Risk Transition</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <tr><td><strong>Address</strong></td><td>332 Center Street, El Segundo, CA 90245</td></tr>
+        <tr><td><strong>Enrollment</strong></td><td>~700 students</td></tr>
+        <tr><td><strong>Reading Proficiency</strong></td><td>73%</td></tr>
+        <tr><td><strong>Math Proficiency</strong></td><td>65%</td></tr>
+      </table>
+      <p>Middle school is widely recognized as the <strong>most challenging period</strong> for students on the autism spectrum:</p>
+      <ul>
+        <li><strong>Multiple teachers and classrooms</strong> &mdash; loss of single-classroom structure</li>
+        <li><strong>Changing class periods</strong> &mdash; navigating hallways, lockers, schedules</li>
+        <li><strong>Heightened social complexity</strong> &mdash; cliques, hierarchies, puberty</li>
+        <li><strong>Less adult supervision</strong> compared to elementary</li>
+        <li><strong>Bullying peaks</strong> in middle school; autistic students disproportionately targeted</li>
+        <li><strong>Academic demands increase</strong> &mdash; more homework, abstract thinking</li>
+      </ul>
+      <div class="flag-box green">
+        <h4>Potential Positives</h4>
+        <ul>
+          <li>Only one middle school, so peers from both elementary schools converge &mdash; maintains some familiar relationships</li>
+          <li>Mid-size (~700 students) is not as overwhelming as a large middle school</li>
+          <li>Academic performance is reasonable (73% reading, 65% math)</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Likely Gaps</h4>
+        <ul>
+          <li>No autism-specific social skills group (unless written into IEP)</li>
+          <li>Limited structured lunch/recess support</li>
+          <li>General ed teachers with 150+ students may not provide individualized attention</li>
+          <li>Bullying intervention may be reactive rather than preventive</li>
+        </ul>
+      </div>
+      <h4>Critical IEP Considerations for Middle School (7 Items)</h4>
+      <ol>
+        <li><strong>Transition plan</strong> should begin in 5th grade &mdash; visit the middle school, practice the routine</li>
+        <li>Request an <strong>aide or peer buddy</strong> for the first weeks/months</li>
+        <li>Ensure <strong>social skills instruction</strong> is in the IEP</li>
+        <li>Request a <strong>safe space/calm room</strong> for breaks or regulation</li>
+        <li>Request <strong>organizational support</strong> (executive functioning coaching, check-ins)</li>
+        <li>Discuss <strong>anti-bullying protections</strong> and how the school handles social conflicts</li>
+        <li>Consider whether a <strong>smaller class setting or modified schedule</strong> is appropriate</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127891;</span> El Segundo High School (9-12) &mdash; Full Profile</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <tr><td><strong>Address</strong></td><td>640 Main Street, El Segundo, CA 90245</td></tr>
+        <tr><td><strong>Enrollment</strong></td><td>~1,290 students</td></tr>
+        <tr><td><strong>Reading / Math</strong></td><td>79% / 65%</td></tr>
+        <tr><td><strong>National / State Ranking</strong></td><td>#786 nationally / #105 in CA (U.S. News)</td></tr>
+        <tr><td><strong>Graduation Rate</strong></td><td>86.5%</td></tr>
+        <tr><td><strong>College Readiness</strong></td><td>Index of 63</td></tr>
+      </table>
+      <div class="flag-box green">
+        <h4>Potential Positives</h4>
+        <ul>
+          <li>Strong academic performance &mdash; opportunities for college-bound autistic students</li>
+          <li>More elective choices that may align with special interests</li>
+          <li>Transition planning required by age 16 under IDEA</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Potential Concerns</h4>
+        <ul>
+          <li>Largest school in district (~1,290) &mdash; sensory and social challenges increase</li>
+          <li>Graduation rate of 86.5% is below CA average &mdash; what is the SWD-specific rate?</li>
+          <li>College readiness index of 63 &mdash; how does this break down for SWDs?</li>
+          <li>No documented vocational or life-skills programs for non-college-bound students</li>
+        </ul>
+      </div>
+      <h4>Critical IEP Considerations for High School (7 Items)</h4>
+      <ol>
+        <li><strong>Transition plan</strong> is legally required starting at age 16 (or earlier)</li>
+        <li>Plan must address post-secondary goals: college, vocational training, employment, independent living</li>
+        <li>Consider <strong>elective classes</strong> aligned with strengths and interests</li>
+        <li>Request <strong>counseling services</strong> for social skills, self-advocacy, anxiety management</li>
+        <li>Discuss <strong>work experience</strong> or <strong>community-based instruction</strong> if appropriate</li>
+        <li>Ensure IEP includes <strong>self-advocacy goals</strong> &mdash; teaching your child to understand and communicate their needs</li>
+        <li>Plan for the <strong>age-of-majority transfer</strong> (at 18, educational rights transfer to the student in California)</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128640;</span> Da Vinci Schools (Charter Alternative, 9-12)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>Da Vinci Schools operates charter high schools in the Hawthorne/El Segundo area with project-based learning and smaller environments.</p>
+      <table class="data-table">
+        <tr><td><strong>Website</strong></td><td><a href="https://www.davincischools.org/" target="_blank">davincischools.org</a></td></tr>
+        <tr><td><strong>SpEd Contact</strong></td><td>Dr. Lynn Rodriguez &mdash; lrodriguez@davincischools.org</td></tr>
+        <tr><td><strong>SELPA</strong></td><td>LA County Charter SELPA (different from ESUSD's Southwest SELPA)</td></tr>
+      </table>
+      <h4>Programs</h4>
+      <ul>
+        <li><strong>Da Vinci Design</strong> &mdash; project-based, design thinking</li>
+        <li><strong>Da Vinci Science</strong> &mdash; STEM-focused, project-based</li>
+        <li><strong>Da Vinci Communications</strong> &mdash; media and communications focus</li>
+        <li><strong>Da Vinci RISE High</strong> &mdash; specifically designed for students who have struggled in traditional settings (foster youth, housing instability, justice-involved youth, and others needing a smaller, more supportive environment)</li>
+      </ul>
+      <p>Da Vinci provides a &ldquo;full continuum of supports&rdquo; with a goal of inclusion in least restrictive environment. Autism is a recognized eligibility category.</p>
+      <h4>Consider Da Vinci If</h4>
+      <ul>
+        <li>Your child thrives with project-based, hands-on learning</li>
+        <li>A smaller school setting is important</li>
+        <li>Your child has specific STEM interests (Da Vinci Science)</li>
+        <li>The traditional high school environment is too overwhelming</li>
+        <li>Da Vinci RISE may be appropriate for students who need extra support structures</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128210;</span> Arena High School (Continuation, 9-12)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>Arena High is ESUSD's continuation/alternative high school for students who need a non-traditional setting. Limited public information is available about its special education services.</p>
+      <h4>Potentially relevant if:</h4>
+      <ul>
+        <li>Your child cannot function in the traditional high school setting</li>
+        <li>A smaller, more flexible environment is needed</li>
+      </ul>
+      <div class="flag-box amber">
+        <h4>Important Caveat</h4>
+        <ul>
+          <li>Continuation schools typically serve students who are credit-deficient and may not have robust special education programming</li>
+          <li>Inquire specifically about SpEd services before considering this option</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127919;</span> Scenario Analysis &mdash; Best / Realistic / Worst Case</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>Elementary Level Entry (K-5)</h4>
+      <div class="flag-box green">
+        <h4>Best Case</h4>
+        <ul>
+          <li>Placed at whichever elementary has strongest SpEd team. Inclusive education with pull-out services. Develops friendships with social skills instruction. 1:1 aide or behavioral support if needed. Small school means teachers know her and advocate for her.</li>
+        </ul>
+      </div>
+      <div class="flag-box amber">
+        <h4>Realistic Case</h4>
+        <ul>
+          <li>Elementary experience is adequate but not specialized. Gen ed teachers do their best but have limited autism training. Related services (speech, OT) provided per IEP. Social struggles begin but are manageable. Transition to middle school will be the biggest concern.</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Worst Case</h4>
+        <ul>
+          <li>School lacks autism expertise. Needs exceed what gen ed with minimal support can provide. Behavioral challenges or social isolation emerge. District offers a pull-out program that is not autism-specific. You may need NPS placement or an IEE to document the mismatch.</li>
+        </ul>
+      </div>
+
+      <h4>Middle School Entry (6-8)</h4>
+      <div class="flag-box green">
+        <h4>Best Case</h4>
+        <ul>
+          <li>Careful transition planning (starting in 5th grade), dedicated case manager, strong IEP supports, social skills group. Finds a peer group through shared interests (clubs, electives).</li>
+        </ul>
+      </div>
+      <div class="flag-box amber">
+        <h4>Realistic Case</h4>
+        <ul>
+          <li>Transition is bumpy. Social challenges intensify. Academic demands require more support. School provides IEP services but environment not designed for autistic students. Anxiety may increase. You advocate hard and IEP is adjusted.</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Worst Case</h4>
+        <ul>
+          <li>Social dynamics overwhelm her. Bullying or exclusion occurs. Behavioral support insufficient. Anxiety or school refusal develops. NPS placement becomes necessary.</li>
+        </ul>
+      </div>
+
+      <h4>High School Entry (9-12)</h4>
+      <div class="flag-box green">
+        <h4>Best Case</h4>
+        <ul>
+          <li>Strong academics provide good college prep pathway. Transition planning begins early. Self-advocacy skills develop. Electives match interests. Graduates with diploma and post-secondary plan.</li>
+        </ul>
+      </div>
+      <div class="flag-box amber">
+        <h4>Realistic Case</h4>
+        <ul>
+          <li>Large school is challenging but manageable with supports. Transition planning is adequate. Social life limited but has small friend group. Needs ongoing counseling and executive functioning support.</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Worst Case</h4>
+        <ul>
+          <li>Campus size is overwhelming. Social isolation increases. Without strong self-advocacy, services may be inadequate. Consider Da Vinci Schools or NPS as alternatives.</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: COMPLIANCE & DATA ===== -->
+<section class="section" id="compliance">
+  <h2 class="section-title">Compliance &amp; Data</h2>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128202;</span> California Monitoring Framework</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>CDE monitors district compliance with IDEA through four mechanisms:</p>
+      <ol>
+        <li><strong>Annual Determinations:</strong> CDE issues determinations for each district/SELPA (Meets Requirements, Needs Assistance, Needs Intervention, Needs Substantial Intervention)</li>
+        <li><strong>Compliance Reviews:</strong> Periodic on-site or desk reviews of IEP files and procedures</li>
+        <li><strong>Disproportionality Reviews:</strong> Analysis of whether certain racial/ethnic groups are over- or under-identified for special education</li>
+        <li><strong>State Complaints:</strong> Formal complaints filed with CDE alleging IDEA violations</li>
+      </ol>
+      <h4>Common Compliance Challenges for Small Districts Like ESUSD</h4>
+      <ul>
+        <li>Timely completion of evaluations (60-day timeline)</li>
+        <li>Transition planning at age 16 (fewer vocational options)</li>
+        <li>LRE percentages &mdash; fewer inclusion supports may lead to more restrictive placements</li>
+        <li>Related services staffing &mdash; difficulty recruiting/retaining BCBAs, OTs, SLPs with autism expertise</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128202;</span> Key Performance Indicators to Review</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Indicator</th><th>What It Measures</th><th>Why It Matters</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Ind. 1</strong></td><td>IEP graduation rate</td><td>Signals long-term outcomes</td></tr>
+          <tr><td><strong>Ind. 2</strong></td><td>IEP dropout rate</td><td>High dropout = insufficient support</td></tr>
+          <tr><td><strong>Ind. 3</strong></td><td>Statewide assessment participation &amp; proficiency</td><td>Are SWDs being taught grade-level content?</td></tr>
+          <tr><td><strong>Ind. 5</strong></td><td>Least Restrictive Environment</td><td>% of SWDs in gen ed 80%+ of day</td></tr>
+          <tr><td><strong>Ind. 8</strong></td><td>Parent involvement</td><td>Meaningful engagement?</td></tr>
+          <tr><td><strong>Ind. 11</strong></td><td>Timely evaluations (60-day)</td><td>Completed on time? Target: 100%</td></tr>
+          <tr><td><strong>Ind. 13</strong></td><td>Secondary transition</td><td>Quality of transition planning at age 16+</td></tr>
+        </tbody>
+      </table>
+      <h4>Indicator 5: LRE &mdash; Critical for Autism</h4>
+      <ul>
+        <li><strong>Category A:</strong> Regular class 80%+ of day (most inclusive)</li>
+        <li><strong>Category B:</strong> Regular class 40-79% of day</li>
+        <li><strong>Category C:</strong> Regular class &lt;40% of day (most restrictive)</li>
+      </ul>
+      <p>High Category A = district supports inclusion. High Category C = may default to restrictive placements. Compare ESUSD to state averages.</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128269;</span> CA School Dashboard Walkthrough</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>Follow these steps to access ESUSD's data on the California School Dashboard:</p>
+      <ol>
+        <li>Go to <a href="https://www.caschooldashboard.org/" target="_blank">caschooldashboard.org</a></li>
+        <li>Search &ldquo;El Segundo Unified&rdquo;</li>
+        <li>Click on the district</li>
+        <li>Select <strong>&ldquo;Students with Disabilities&rdquo;</strong> as the student group</li>
+        <li>Review each indicator (color-coded: Blue = highest, Red = lowest)</li>
+      </ol>
+      <h4>What to Look for on the Dashboard</h4>
+      <ul>
+        <li><strong>Academic Performance (ELA and Math):</strong> Check SWD subgroup status AND change from prior year</li>
+        <li><strong>Suspension Rate:</strong> Compare SWD rate to overall &mdash; a large gap suggests inadequate behavioral supports</li>
+        <li><strong>Chronic Absenteeism:</strong> High SWD absenteeism may indicate families are frustrated or students are being pushed out</li>
+        <li><strong>College/Career Readiness:</strong> How are SWDs performing on this indicator?</li>
+      </ul>
+      <div class="flag-box amber">
+        <h4>Important Caveat for Small Districts</h4>
+        <ul>
+          <li>ESUSD's SWD subgroup may have fewer than 30 students required for public reporting. If data is suppressed, request it directly from the district.</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128269;</span> Where to Find Live Data</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Source</th><th>What to Find</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://dq.cde.ca.gov/dataquest/" target="_blank">CDE DataQuest</a></td><td>Special ed enrollment, LRE data, demographics</td></tr>
+          <tr><td><a href="https://www.caschooldashboard.org/" target="_blank">CA School Dashboard</a></td><td>Performance data by student group (SWD)</td></tr>
+          <tr><td><a href="https://www.cde.ca.gov/sp/se/as/caselpas.asp" target="_blank">CDE SELPA Info</a></td><td>SELPA directory, annual performance reports</td></tr>
+          <tr><td><a href="https://www.cde.ca.gov/sp/se/qa/cmpcmplts.asp" target="_blank">CDE Complaints</a></td><td>State complaint decisions</td></tr>
+          <tr><td><a href="https://www.dgs.ca.gov/OAH/Case-Types/Special-Education" target="_blank">OAH Decisions</a></td><td>Due process hearing decisions</td></tr>
+          <tr><td><a href="https://ocrcas.ed.gov/" target="_blank">OCR Database</a></td><td>Federal civil rights complaints</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#9878;&#65039;</span> State Complaint vs. Due Process &mdash; Comparison</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th></th><th>State Complaint</th><th>Due Process</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Filed with</strong></td><td>CDE</td><td>OAH</td></tr>
+          <tr><td><strong>Timeline</strong></td><td>60-day resolution</td><td>Hearing within 45 days of resolution period</td></tr>
+          <tr><td><strong>Scope</strong></td><td>Systemic or individual violations</td><td>Individual child's FAPE</td></tr>
+          <tr><td><strong>Remedy</strong></td><td>Corrective actions, compensatory ed</td><td>Individualized relief</td></tr>
+          <tr><td><strong>Cost to parent</strong></td><td>Free</td><td>Free (but often need attorney)</td></tr>
+          <tr><td><strong>Best for</strong></td><td>Procedural violations, systemic issues</td><td>Disputes about your child's specific program</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128269;</span> OCR Complaints &amp; How to Search</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>The Office for Civil Rights (OCR) investigates complaints alleging discrimination based on disability under Section 504 and the ADA.</p>
+      <h4>How to Search for OCR Complaints Against ESUSD</h4>
+      <ol>
+        <li>Go to <a href="https://ocrcas.ed.gov/" target="_blank">ocrcas.ed.gov</a></li>
+        <li>Search &ldquo;El Segundo Unified School District&rdquo;</li>
+        <li>Look for resolved cases, resolution agreements, and findings of noncompliance</li>
+      </ol>
+      <h4>Common OCR Issues Involving Autism</h4>
+      <ul>
+        <li>Failure to evaluate</li>
+        <li>Denial of FAPE under Section 504</li>
+        <li>Restraint and seclusion</li>
+        <li>Disability-based harassment</li>
+        <li>Disproportionate discipline</li>
+      </ul>
+      <p><strong>Resolution agreements and corrective actions</strong> are public records. File a PRA request with ESUSD to obtain any from the past 5 years.</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128200;</span> Neighboring District Comparison</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>District</th><th>Size</th><th>SELPA</th><th>Autism Programs</th><th>NPS Reliance</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ESUSD</strong></td><td>~3,500</td><td>Southwest</td><td><span class="rating rating-unknown">Limited/Unknown</span></td><td>Likely higher</td></tr>
+          <tr><td>Manhattan Beach</td><td>~6,500</td><td>South Bay Consortium</td><td><span class="rating rating-unknown">Unknown, larger</span></td><td>Moderate</td></tr>
+          <tr><td><strong>Torrance USD</strong></td><td>~22,000</td><td>Own (single)</td><td><span class="rating rating-strong">Most comprehensive</span></td><td>Lower</td></tr>
+          <tr><td>Redondo Beach</td><td>~8,500</td><td>South Bay Consortium</td><td><span class="rating rating-moderate">Moderate</span></td><td>Moderate</td></tr>
+          <tr><td>Hermosa Beach</td><td>~1,200</td><td>South Bay Consortium</td><td><span class="rating rating-weak">Very limited</span></td><td>Higher</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Key insight:</strong> If considering a move or inter-district transfer, <strong>Torrance USD</strong> offers the most comprehensive programs (22,000 students, own SELPA, autism-specific SDCs, more BCBAs).</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128203;</span> The &ldquo;Small District&rdquo; Factor &mdash; Full Analysis</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="flag-box green">
+        <h4>Advantages of a Small District</h4>
+        <ul>
+          <li>Smaller class sizes</li>
+          <li>Potentially more personalized attention</li>
+          <li>Easier to build relationships with administrators and staff</li>
+          <li>IEP teams may be more accessible</li>
+        </ul>
+      </div>
+      <div class="flag-box red">
+        <h4>Disadvantages of a Small District</h4>
+        <ul>
+          <li>Fewer specialized programs (may lack a dedicated autism SDC)</li>
+          <li>Smaller pool of related service providers</li>
+          <li>Less experience with complex or high-need students</li>
+          <li>Budget constraints may limit services</li>
+          <li>May need to send students to NPS more frequently because in-house options are limited</li>
+          <li>SWD data may be suppressed on Dashboard due to small sample size</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128270;</span> Additional Research Steps You Should Take</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <ol>
+        <li><strong>Review ESUSD's LCAP</strong> (Local Control Accountability Plan) &mdash; must describe how the district serves SWDs. Available at <a href="https://www.cde.ca.gov/re/lc/" target="_blank">cde.ca.gov/re/lc</a></li>
+        <li><strong>Review ESUSD Board Meeting Minutes</strong> &mdash; search for discussions about SpEd staffing, programs, and budget. Available on the <a href="https://www.elsegundousd.net/" target="_blank">district website</a></li>
+        <li><strong>Request the SpEd Parent Handbook</strong> from the Director of Special Education</li>
+        <li><strong>Attend a CAC Meeting</strong> &mdash; contact Southwest SELPA for schedule</li>
+        <li><strong>Request SELPA Annual Budget Plan and Service Plan</strong> &mdash; describes funding allocation and available services</li>
+        <li><strong>File Public Records Act Requests</strong> for:
+          <ul>
+            <li>Number of students with autism served by ESUSD (by placement type)</li>
+            <li>Number of students placed in NPS</li>
+            <li>Number of due process filings in the past 5 years</li>
+            <li>Any CDE compliance review reports</li>
+            <li>Staff qualifications for SpEd teachers and related service providers</li>
+          </ul>
+        </li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128680;</span> Red &amp; Green Flags in the Data</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="flag-box red">
+        <h4>Red Flags to Watch For</h4>
+        <ul>
+          <li>Low LRE Category A &mdash; district defaults to restrictive placements</li>
+          <li>Below-average SWD academic performance (Red/Orange on Dashboard)</li>
+          <li>High SWD suspension rates &mdash; inadequate behavioral supports</li>
+          <li>Compliance findings on evaluation timelines</li>
+          <li>Pattern of due process on the same issues (systemic problems)</li>
+          <li>Disproportionality findings in identification</li>
+        </ul>
+      </div>
+      <div class="flag-box green">
+        <h4>Green Flags</h4>
+        <ul>
+          <li>High parent involvement scores (Indicator 8)</li>
+          <li>&ldquo;Meets Requirements&rdquo; annual determination from CDE</li>
+          <li>Strong academic growth for SWDs on Dashboard</li>
+          <li>High LRE Category A (robust inclusion)</li>
+          <li>Few or no adverse due process decisions</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: ALTERNATIVE OPTIONS ===== -->
+<section class="section" id="alternatives">
+  <h2 class="section-title">Alternative Options &amp; Resources</h2>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127979;</span> Non-Public Schools (NPS) &mdash; District-Funded Options</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>NPS schools are certified by CDE for students whose needs can't be met in public school. <strong>The district pays</strong> when placement is made through the IEP process.</p>
+      <p>Search the CDE NPS database: <a href="https://www.cde.ca.gov/sp/se/ds/npssearch.asp" target="_blank">cde.ca.gov/sp/se/ds/npssearch.asp</a></p>
+      <table class="data-table">
+        <thead><tr><th>School</th><th>Location</th><th>Focus</th><th>Grades</th></tr></thead>
+        <tbody>
+          <tr><td><strong>The Help Group</strong> (Village Glen, Bridgeport, STEM3)</td><td>Sherman Oaks (~25 mi)</td><td>Autism, ADHD, learning disabilities. STEM3 is STEM-focused for autistic students.</td><td>K-12</td></tr>
+          <tr><td><strong>Kayne ERAS Center</strong> (ECF)</td><td>Culver City (~8 mi)</td><td>Intellectual/developmental disabilities, autism. Academic and life-skills curricula.</td><td>Pre-K&ndash;22</td></tr>
+          <tr><td><strong>Carousel School</strong></td><td>Carson/Torrance</td><td>Autism, ABA-based instruction, communication, functional skills</td><td>Pre-K&ndash;12</td></tr>
+          <tr><td><strong>Westview School</strong></td><td>West LA (Brentwood)</td><td>Learning differences, autism. Small classes (8-12 students). Social-emotional focus.</td><td>K-8</td></tr>
+          <tr><td><strong>Tobinworld</strong></td><td>Glendale</td><td>Autism, severe behavioral challenges. ABA-based methods.</td><td>Various</td></tr>
+          <tr><td><strong>Frostig School</strong></td><td>Pasadena</td><td>Learning disabilities, research-based. May serve high-functioning autism.</td><td>1-12</td></tr>
+          <tr><td><strong>The Almansor Center</strong></td><td>Alhambra</td><td>Emotional, behavioral, and learning disabilities including autism. School and therapy.</td><td>Various</td></tr>
+          <tr><td><strong>New Vista School</strong></td><td>Laguna Hills (farther)</td><td>Learning disabilities, ADHD, autism spectrum. Small class sizes.</td><td>Various</td></tr>
+          <tr><td><strong>Stellar Academy</strong></td><td>Pacific Palisades</td><td>Primarily dyslexia; may serve overlapping profiles including autism.</td><td>Various</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128176;</span> Private Schools (Parent-Paid)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>These schools require tuition payment by the family. No IEP required for enrollment.</p>
+      <table class="data-table">
+        <thead><tr><th>School</th><th>Location</th><th>Grades</th><th>Approx. Tuition</th><th>Focus</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Westmark School</strong></td><td>Encino</td><td>2-12</td><td>$40,000-$50,000/yr</td><td>Learning differences (dyslexia, ADHD, processing). Some ASD students. College-prep.</td></tr>
+          <tr><td><strong>Park Century School</strong></td><td>Culver City (very close)</td><td>1-8</td><td>$45,000-$55,000/yr</td><td>Language-based learning disabilities. Small classes. May serve high-functioning autism.</td></tr>
+          <tr><td><strong>Almansor Academy</strong></td><td>Alhambra</td><td>Various</td><td>Varies (smaller/more affordable)</td><td>Special needs including autism.</td></tr>
+          <tr><td><strong>Pathways Academy</strong></td><td>Various LA locations</td><td>Various</td><td>Varies</td><td>Some locations serve autism and social-emotional needs.</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#129504;</span> ABA Therapy Providers (South Bay)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Provider</th><th>Area</th><th>Services</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Behavior Frontiers</strong></td><td>South Bay (multiple)</td><td>In-home &amp; center-based ABA, social skills, parent training</td><td>Accepts most insurance. Well-established in South Bay.</td></tr>
+          <tr><td><strong>CARD</strong></td><td>Torrance area</td><td>Comprehensive ABA, diagnostic evaluations, social skills, parent training</td><td>One of largest ABA providers nationally. Founded in LA.</td></tr>
+          <tr><td><strong>Autism Spectrum Therapies (AST)</strong></td><td>LA County</td><td>In-home &amp; center-based ABA, social skills, school consultation</td><td>Known for quality clinical supervision.</td></tr>
+          <tr><td><strong>Intercare Therapy</strong></td><td>LA County / South Bay</td><td>In-home ABA, social skills training</td><td>Frequently serves South Bay families.</td></tr>
+          <tr><td><strong>Verbal Behavior Associates (VBA)</strong></td><td>El Segundo area</td><td>ABA with verbal behavior emphasis</td><td>Local to El Segundo.</td></tr>
+          <tr><td><strong>Trumpet Behavioral Health</strong></td><td>Southern CA (multiple)</td><td>ABA, early intervention, school readiness</td><td></td></tr>
+          <tr><td><strong>Pacific Child &amp; Family</strong></td><td>Torrance / South Bay</td><td>ABA, OT, speech therapy</td><td>Multi-service provider.</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128172;</span> Speech &amp; Language Therapy Providers</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <ul>
+        <li><strong>South Bay Speech and Language</strong> &mdash; Torrance; speech &amp; language therapy, social pragmatic groups, feeding therapy</li>
+        <li><strong>Galvin Therapy Center</strong> &mdash; Manhattan Beach; speech, OT, and feeding therapy for children with autism</li>
+      </ul>
+      <h4>Occupational Therapy</h4>
+      <ul>
+        <li><strong>South Bay OT for Kids</strong> &mdash; Torrance / Redondo Beach; sensory integration, fine motor, self-regulation</li>
+        <li><strong>Kid PT and OT</strong> &mdash; Manhattan Beach; OT, PT, sensory integration</li>
+      </ul>
+      <h4>Multi-Disciplinary Providers</h4>
+      <ul>
+        <li><strong>Beach Cities Learning</strong> &mdash; Manhattan Beach / El Segundo; educational therapy, tutoring, executive function coaching for students with learning differences and autism</li>
+        <li><strong>The Learning Path</strong> &mdash; South Bay; academic tutoring and support for students with special needs</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128218;</span> Charter School Considerations</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>Charter schools are public schools and <strong>must provide special education services under IDEA</strong>. However, quality varies greatly.</p>
+      <h4>Key Questions to Ask Any Charter School</h4>
+      <ul>
+        <li>Is the charter school its own LEA for SpEd, or does it operate under its authorizing district's SELPA?</li>
+        <li>What specific SpEd staff do you employ (SLPs, OTs, school psychologists, BCBAs)?</li>
+        <li>How are IEPs implemented in your school environment?</li>
+        <li>What class sizes and support staff ratios exist?</li>
+      </ul>
+      <h4>Nearby Charter Options</h4>
+      <ul>
+        <li><strong>Da Vinci Schools</strong> &mdash; Hawthorne/El Segundo; 9-12; project-based learning (see School Guide above)</li>
+        <li><strong>Environmental Charter Schools</strong> &mdash; Lawndale/Gardena; middle &amp; high school; project-based learning may benefit visual/hands-on learners</li>
+        <li><strong>Wiseburn Da Vinci</strong> &mdash; El Segundo area; partnership between Wiseburn USD and Da Vinci Schools</li>
+      </ul>
+      <div class="flag-box amber">
+        <h4>Important Note</h4>
+        <ul>
+          <li>For children with significant autism-related needs, charter schools may not have the intensive support infrastructure (dedicated autism classrooms, BCBAs, 1:1 aides) needed. They work best for students who can function in gen ed with some accommodations.</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128153;</span> Harbor Regional Center Services</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <tr><td><strong>Phone</strong></td><td><a href="tel:3105401711">(310) 540-1711</a></td></tr>
+        <tr><td><strong>Address</strong></td><td>21231 Hawthorne Blvd, Torrance, CA 90503</td></tr>
+        <tr><td><strong>Website</strong></td><td><a href="https://www.harborrc.org/" target="_blank">harborrc.org</a></td></tr>
+        <tr><td><strong>Service Area</strong></td><td>South Bay (El Segundo, Torrance, Carson), Harbor area, Long Beach, SE LA County</td></tr>
+        <tr><td><strong>Clients Served</strong></td><td>17,000+ people with developmental disabilities</td></tr>
+      </table>
+      <h4>Services Available</h4>
+      <ol>
+        <li><strong>Diagnosis &amp; Assessment</strong> &mdash; comprehensive developmental evaluations (free)</li>
+        <li><strong>Early Start Program</strong> (birth&ndash;3) &mdash; developmental therapy, speech, OT, ABA, parent training</li>
+        <li><strong>Behavioral Services</strong> &mdash; ABA therapy (in-home and center-based), behavioral consultation</li>
+        <li><strong>Respite Care</strong> &mdash; temporary relief for caregivers</li>
+        <li><strong>Social Skills Groups &amp; Recreation</strong></li>
+        <li><strong>After-School &amp; Day Programs</strong></li>
+        <li><strong>Supported/Independent Living</strong> (for older individuals)</li>
+        <li><strong>Service Coordination</strong> &mdash; assigned Service Coordinator develops Individual Program Plan (IPP)</li>
+        <li><strong>Camp &amp; Recreational Programs</strong></li>
+        <li><strong>Family Support &amp; Parent Training</strong></li>
+      </ol>
+      <h4>Lanterman Act Rights</h4>
+      <p>Under the <strong>Lanterman Developmental Disabilities Services Act</strong>, individuals with developmental disabilities (including autism) have a right to services that help them live as independently and normally as possible. The Regional Center <strong>cannot deny services solely due to budget constraints</strong> if those services are needed.</p>
+      <div class="flag-box green">
+        <h4>Key Point</h4>
+        <ul>
+          <li>Regional Center services are <strong>separate from and in addition to</strong> school district services. A child can have both an IEP and Regional Center services simultaneously.</li>
+          <li>Regional Center covers evenings, weekends, summers, and services the school doesn't provide.</li>
+        </ul>
+      </div>
+      <h4>Verify Your Regional Center Assignment</h4>
+      <p>If there is any question about which RC serves your address: <a href="https://www.westsiderc.org/" target="_blank">Westside RC</a> (310) 258-4000 | <a href="https://www.dds.ca.gov/rc/listings/" target="_blank">DDS RC Lookup</a></p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128737;&#65039;</span> Insurance Coverage &amp; Medi-Cal</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>California Autism Insurance Mandate (SB 946)</h4>
+      <p>California law requires state-regulated health insurance plans to cover behavioral health treatment for autism:</p>
+      <ul>
+        <li><strong>No age cap</strong> on coverage</li>
+        <li><strong>No dollar cap</strong> on coverage</li>
+        <li>Requires a diagnosis of ASD and a prescription/referral from a physician</li>
+        <li>Covers ABA therapy and other evidence-based behavioral interventions</li>
+        <li>A qualified BCBA must design and supervise treatment</li>
+      </ul>
+      <div class="flag-box amber">
+        <h4>Important: Check Your Plan Type</h4>
+        <ul>
+          <li>Self-funded employer plans (ERISA) are <strong>not subject</strong> to state mandates &mdash; check if your plan is state-regulated or self-funded</li>
+          <li>Insurance-funded ABA and school-based services are <strong>not mutually exclusive</strong> &mdash; your child can receive both</li>
+        </ul>
+      </div>
+      <h4>Medi-Cal Coverage</h4>
+      <p>If income-eligible, Medi-Cal covers ABA and behavioral health through the <strong>Early Periodic Screening, Diagnosis and Treatment (EPSDT)</strong> benefit. Medi-Cal has its own ABA coverage separate from the SB 946 mandate.</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#129309;</span> The Service Ecosystem &mdash; Layering All Support</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="layer-stack">
+        <div class="layer">
+          <div class="layer-num">1</div>
+          <div class="layer-text">
+            <h4>School District (IEP)</h4>
+            <p>During school hours: academic instruction, related services (speech, OT), behavioral support. Free under FAPE.</p>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="layer-num">2</div>
+          <div class="layer-text">
+            <h4>Harbor Regional Center (IPP)</h4>
+            <p>After school, evenings, weekends, summers: ABA therapy, respite, social skills, recreation. Contact: <a href="tel:3105401711">(310) 540-1711</a></p>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="layer-num">3</div>
+          <div class="layer-text">
+            <h4>Health Insurance (SB 946)</h4>
+            <p>ABA therapy (no age/dollar cap in CA), speech, OT. Providers: Behavior Frontiers, CARD, AST, Intercare</p>
+          </div>
+        </div>
+        <div class="layer">
+          <div class="layer-num">4</div>
+          <div class="layer-text">
+            <h4>Private Supplements</h4>
+            <p>Social skills groups, tutoring, executive functioning coaching. Beach Cities Learning, The Learning Path, private speech &amp; OT</p>
+          </div>
+        </div>
+      </div>
+      <p><strong>These are NOT mutually exclusive.</strong> Your child can &mdash; and should &mdash; receive services from multiple sources simultaneously.</p>
+      <h4>How They Work Together</h4>
+      <ul>
+        <li><strong>School hours:</strong> District-provided or NPS-provided SpEd program (through IEP)</li>
+        <li><strong>After school / evenings:</strong> ABA therapy through insurance or Regional Center</li>
+        <li><strong>Weekends:</strong> Social skills groups through Regional Center; community activities</li>
+        <li><strong>Summers:</strong> ESY through IEP; summer programs through Regional Center; continued ABA</li>
+        <li><strong>Parent training:</strong> Through Regional Center, ABA provider, and/or insurance</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128200;</span> When District Services Are Insufficient &mdash; 6-Step Escalation</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <ol>
+        <li><strong>Request an IEP meeting</strong> to discuss concerns about progress and appropriateness of current placement</li>
+        <li><strong>Request additional assessments</strong> (IEE if you disagree with district assessments)</li>
+        <li><strong>Request a more restrictive placement</strong> (e.g., SDC if currently in gen ed with insufficient supports)</li>
+        <li><strong>Request NPS placement</strong> if district programs cannot provide FAPE &mdash; the district must consider this</li>
+        <li><strong>File for mediation or due process</strong> through OAH if you cannot reach agreement</li>
+        <li><strong>File a compliance complaint</strong> with CDE if the district is violating IDEA procedures</li>
+      </ol>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: YOUR RIGHTS ===== -->
+<section class="section" id="rights">
+  <h2 class="section-title">Your Rights &amp; Advocacy</h2>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128220;</span> Core Federal Rights (IDEA)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <ul>
+        <li><strong>Right to FAPE:</strong> Free Appropriate Public Education at no cost, with &ldquo;meaningful educational benefit&rdquo;</li>
+        <li><strong>Right to Participate:</strong> You are an equal IEP team member. Bring anyone with knowledge of your child (34 C.F.R. &sect;300.321(a)(6))</li>
+        <li><strong>Prior Written Notice (PWN):</strong> District must notify you before proposing/refusing any change (34 C.F.R. &sect;300.503)</li>
+        <li><strong>Informed Consent:</strong> Required before evaluation, initial placement, and reevaluation</li>
+        <li><strong>Access Records:</strong> Right to inspect all education records within 45 days (34 C.F.R. &sect;300.613)</li>
+        <li><strong>Procedural Safeguards:</strong> Provided at least once per year and upon request (34 C.F.R. &sect;300.504)</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#9878;&#65039;</span> Endrew F. &mdash; The &ldquo;Meaningful Benefit&rdquo; Standard</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>In <strong><em>Endrew F. v. Douglas County School District</em> (2017)</strong>, the U.S. Supreme Court ruled that an IEP must be &ldquo;reasonably calculated to enable a child to make progress appropriate in light of the child&rsquo;s circumstances.&rdquo;</p>
+      <div class="flag-box purple">
+        <h4>What This Means for You</h4>
+        <ul>
+          <li>Your child is entitled to <strong>more than minimal progress</strong> &mdash; the old &ldquo;some benefit&rdquo; standard is dead</li>
+          <li>The IEP must be designed for <strong>meaningful educational benefit</strong></li>
+          <li>If the district proposes an IEP that only maintains current levels without growth, it likely violates Endrew F.</li>
+          <li><strong>Use this phrase:</strong> &ldquo;Under Endrew F., my child is entitled to meaningful educational benefit, not just some benefit.&rdquo;</li>
+        </ul>
+      </div>
+      <p>Citation: <em>Endrew F. v. Douglas County</em> (2017), 137 S. Ct. 988</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128203;</span> Placement Continuum &amp; the Holland Test (LRE)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>The Full Continuum of Placements (Cal. Ed. Code &sect;56360)</h4>
+      <ol>
+        <li><strong>General education classroom</strong> with supplementary aids, services, and supports</li>
+        <li><strong>General education with pull-out services</strong> (resource room for some subjects)</li>
+        <li><strong>Special day class (SDC)</strong> on a general education campus (with mainstreaming opportunities)</li>
+        <li><strong>Special day class on a separate campus</strong></li>
+        <li><strong>Non-public school (NPS)</strong> &mdash; private school for SWDs, funded by district</li>
+        <li><strong>Residential placement</strong></li>
+        <li><strong>Home/hospital instruction</strong></li>
+      </ol>
+      <h4>The Rachel H. / Holland Test (9th Circuit LRE Standard)</h4>
+      <p>In California, courts use the four-factor test from <em>Sacramento City USD v. Rachel H.</em> (1994):</p>
+      <ol>
+        <li><strong>Educational benefits</strong> of gen ed with supplementary aids vs. special ed placement</li>
+        <li><strong>Non-academic benefits</strong> (social interaction, role modeling) of gen ed</li>
+        <li><strong>Effect on the teacher and other students</strong> in gen ed</li>
+        <li><strong>Cost</strong> (only if gen ed would be significantly more expensive)</li>
+      </ol>
+      <div class="flag-box purple">
+        <h4>Key Points for Autism Placements</h4>
+        <ul>
+          <li>District cannot place your child in a more restrictive setting just because it's more convenient</li>
+          <li>Supplementary aids and services <strong>must be tried and found inadequate</strong> before moving to more restrictive placement</li>
+          <li>An autistic child who benefits socially from inclusion may need to be in gen ed even if academics require significant modification</li>
+          <li>Placement must be an <strong>individualized determination</strong> &mdash; no one-size-fits-all</li>
+        </ul>
+      </div>
+      <p>Citation: <em>Sacramento City USD v. Rachel H.</em> (1994), 14 F.3d 1398</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127800;</span> California-Specific Rights (Extra Protections)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <ul>
+        <li><strong>60-day assessment timeline</strong> after consent (not counting breaks &gt;5 days) &mdash; Cal. Ed. Code &sect;56344(a)</li>
+        <li><strong>Assessment Plan within 15 days</strong> of your written referral &mdash; Cal. Ed. Code &sect;56321(a)</li>
+        <li><strong>10-day advance notice</strong> of IEP meetings &mdash; Cal. Ed. Code &sect;56341.5(c)</li>
+        <li><strong>Audio recording rights</strong> &mdash; give 24-hour notice to record IEP meetings &mdash; Cal. Ed. Code &sect;56341.1(g)</li>
+        <li><strong>Stay-put rights</strong> &mdash; child stays in current placement during disputes &mdash; 20 U.S.C. &sect;1415(j)</li>
+        <li><strong>Translation &amp; interpretation</strong> in your primary language &mdash; Cal. Ed. Code &sect;56341.5(i)</li>
+        <li><strong>ESY consideration</strong> if regression risk during breaks &mdash; Cal. Ed. Code &sect;56345(b)(3)</li>
+        <li><strong>30-day IEP meeting</strong> upon your written request &mdash; Cal. Ed. Code &sect;56343.5</li>
+        <li><strong>Surrogate parents</strong> appointed for wards of the state</li>
+      </ul>
+      <h4>California Autism Definition for SpEd</h4>
+      <p><em>&ldquo;Autism means a developmental disability significantly affecting verbal and nonverbal communication and social interaction, generally evident before age three, that adversely affects a child&rsquo;s educational performance.&rdquo;</em> &mdash; Cal. Ed. Code &sect;56846.2; 5 CCR &sect;3030(b)(1)</p>
+      <p><strong>Important:</strong> A child does not need a medical diagnosis to qualify under the IDEA autism category. The educational team makes its own determination. Conversely, a medical diagnosis does not automatically guarantee eligibility.</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128203;</span> IEP Process Step-by-Step</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <ol>
+        <li><strong>Referral (Child Find)</strong> &mdash; Submit written referral to school principal or SpEd director. Under IDEA's Child Find obligation, the district must identify, locate, and evaluate all children with suspected disabilities.</li>
+        <li><strong>Assessment Plan</strong> &mdash; District provides within 15 days. Review carefully &mdash; ensure it covers all areas: cognitive, academic, speech/language (including pragmatic), social-emotional, adaptive behavior, sensory processing, motor skills, behavioral assessment.</li>
+        <li><strong>Consent &amp; Evaluation</strong> &mdash; Sign plan (you have at least 15 days to review). District has 60 days to complete all assessments and hold IEP meeting.</li>
+        <li><strong>Eligibility Determination</strong> &mdash; IEP team (including you) determines autism category eligibility and whether disability adversely affects educational performance.</li>
+        <li><strong>IEP Development</strong> &mdash; Present levels (PLAAFP), measurable goals, services, accommodations, behavioral support, transition planning.</li>
+        <li><strong>Placement Decision</strong> &mdash; Determined AFTER goals and services &mdash; never the reverse. Full continuum considered in LRE.</li>
+        <li><strong>Implementation</strong> &mdash; District implements as written. You receive progress reports at least as often as report cards.</li>
+        <li><strong>Annual Review</strong> &mdash; At least yearly; you can request meetings anytime (30 days to respond).</li>
+        <li><strong>Triennial Reevaluation</strong> &mdash; Every 3 years; you can request reevaluation anytime (once per year without district agreement).</li>
+      </ol>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128221;</span> Assessment Request Letter Template</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="template-box">[Date]
+
+[Your Name]
+[Your Address]
+
+[Principal/Director of Special Education]
+[School/District Office Address]
+
+Re: Request for Special Education Assessment for [Child's Full Name]
+    Date of Birth: [DOB]  |  Grade: [Grade]  |  School: [School]
+
+Dear [Principal/Director],
+
+I am writing to formally request that [Child's Name] be assessed for
+special education services under IDEA and California Education Code.
+
+I am concerned that [Child's Name] may have a disability that is
+affecting [his/her/their] ability to learn and participate in school.
+Specifically, my concerns include:
+
+- [Difficulty with social interactions with peers]
+- [Challenges with transitions and changes in routine]
+- [Sensory sensitivities affecting classroom participation]
+- [Difficulty with communication / pragmatic language]
+- [Behavioral challenges such as meltdowns or shutdowns]
+- [Academic concerns in specific subjects]
+
+I request assessment in ALL areas of suspected disability:
+- Cognitive/intellectual functioning
+- Academic achievement
+- Speech and language (including pragmatic language)
+- Social-emotional functioning
+- Adaptive behavior
+- Sensory processing
+- Occupational therapy / motor skills
+- Functional behavior assessment
+- Assistive technology needs
+
+I understand the district has 15 calendar days to provide an
+Assessment Plan. Please send it to [your address/email].
+
+I also request copies of all educational records pertaining to
+[Child's Name] pursuant to IDEA and FERPA.
+
+Sincerely,
+[Your Name, Phone, Email]</div>
+      <p><strong>Tips:</strong> Always put it in writing. Send certified mail or email with read receipt. Keep copies of everything. You do NOT need a diagnosis to request assessment. If the district refuses, they must provide Prior Written Notice explaining why.</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128296;</span> IEE Request Letter Template</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>If you <strong>disagree with any district evaluation</strong>, you can request an Independent Educational Evaluation at public expense (the district pays).</p>
+      <div class="template-box">[Date]
+
+[Director of Special Education]
+[District Name]
+[Address]
+
+Re: Request for Independent Educational Evaluation at Public Expense
+    Student: [Child's Name]
+    DOB: [Date of Birth]
+
+Dear [Director],
+
+I am writing to request an Independent Educational Evaluation (IEE)
+at public expense for my child, [Child's Name], pursuant to 34 C.F.R.
+Section 300.502.
+
+I disagree with the district's [type of evaluation, e.g.,
+psychoeducational assessment, speech-language evaluation] dated
+[date of district evaluation].
+
+Please provide me with the district's IEE criteria, including any
+approved evaluator lists and cost guidelines, within a reasonable
+timeframe.
+
+I understand that the district must either agree to fund this IEE or
+file for a due process hearing to defend its evaluation. Please
+respond to this request without unreasonable delay.
+
+Sincerely,
+[Your Name]
+[Contact Information]</div>
+      <h4>Key IEE Rights</h4>
+      <ul>
+        <li>District must either <strong>fund the IEE</strong> or <strong>file for due process</strong> to prove their evaluation was appropriate. They cannot simply refuse.</li>
+        <li>One IEE at public expense per district evaluation you disagree with</li>
+        <li>You can always get an IEE at your own expense &mdash; the IEP team must consider it</li>
+        <li>Simply state disagreement; you do NOT need to explain why</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128170;</span> Dispute Resolution Options</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Option</th><th>Filed With</th><th>Timeline</th><th>Best For</th></tr></thead>
+        <tbody>
+          <tr><td><strong>IEP Meeting</strong></td><td>District</td><td>30 days from request</td><td>First step; always try this first</td></tr>
+          <tr><td><strong>CDE Compliance Complaint</strong></td><td>CDE</td><td>60-day investigation</td><td>Procedural violations, systemic issues. Free.</td></tr>
+          <tr><td><strong>Mediation</strong></td><td>OAH</td><td>Faster than due process</td><td>Voluntary; binding agreement. Free.</td></tr>
+          <tr><td><strong>Due Process Hearing</strong></td><td>OAH</td><td>45 days after resolution period</td><td>Individual FAPE disputes. 2-year statute of limitations.</td></tr>
+          <tr><td><strong>OCR Complaint</strong></td><td>US Dept of Ed</td><td>Varies</td><td>Disability discrimination under Section 504/ADA</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128161;</span> Practical Advocacy Tips</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>Before the IEP Meeting</h4>
+      <ul>
+        <li>Read <a href="https://www.disabilityrightsca.org/" target="_blank">Disability Rights CA</a> &ldquo;Special Education Rights and Responsibilities&rdquo; guide (free)</li>
+        <li>Organize records in a binder (assessments, IEPs, correspondence, medical records, work samples)</li>
+        <li>Write a Parent Concerns letter to be included in the IEP</li>
+        <li>Bring someone with you for note-taking and support</li>
+        <li>Request draft IEP and all reports at least 2 days before the meeting</li>
+        <li>Prepare a list of questions and requests</li>
+      </ul>
+      <h4>During the IEP Meeting</h4>
+      <ul>
+        <li>Record the meeting (24-hour advance notice)</li>
+        <li>Use the phrase <strong>&ldquo;I want that in the IEP&rdquo;</strong> when team agrees verbally</li>
+        <li>Ask for data when district says &ldquo;making progress&rdquo;</li>
+        <li>Don't be rushed &mdash; continue on another date if needed</li>
+        <li>Don't sign if unsure &mdash; take it home to review</li>
+        <li>If district says &ldquo;we don't do that&rdquo; &mdash; <strong>that is NOT a legal justification</strong></li>
+        <li>Request Prior Written Notice for any proposal/refusal you disagree with</li>
+        <li>Focus on your child's needs, not labels or programs</li>
+      </ul>
+      <h4>After the IEP Meeting</h4>
+      <ul>
+        <li>Send follow-up email summarizing agreements (&ldquo;per our conversation today&hellip;&rdquo;)</li>
+        <li>Monitor implementation &mdash; check services are actually being provided</li>
+        <li>Track progress; request meetings whenever you have concerns</li>
+        <li>Everything in writing &mdash; document, document, document</li>
+      </ul>
+      <h4>&ldquo;What to Say When the District Says No&rdquo;</h4>
+      <ul>
+        <li>&ldquo;Please provide me with Prior Written Notice explaining why you are refusing this request.&rdquo;</li>
+        <li>&ldquo;Under Endrew F., my child is entitled to meaningful educational benefit.&rdquo;</li>
+        <li>&ldquo;What data supports the current program is providing meaningful benefit?&rdquo;</li>
+        <li>&ldquo;I'd like that concern noted in the IEP document.&rdquo;</li>
+        <li>&ldquo;I disagree and am reserving my rights to seek dispute resolution.&rdquo;</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#9201;</span> Critical Timelines Quick Reference</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Event</th><th>Timeline</th></tr></thead>
+        <tbody>
+          <tr><td>Assessment Plan after written referral</td><td><strong>15 calendar days</strong></td></tr>
+          <tr><td>Parent review of Assessment Plan</td><td><strong>At least 15 days</strong></td></tr>
+          <tr><td>Complete assessment + IEP after consent</td><td><strong>60 calendar days</strong></td></tr>
+          <tr><td>Advance notice of IEP meeting</td><td><strong>10 calendar days</strong></td></tr>
+          <tr><td>Notice to record IEP meeting</td><td><strong>24 hours</strong></td></tr>
+          <tr><td>IEP meeting after parent's written request</td><td><strong>30 calendar days</strong></td></tr>
+          <tr><td>Resolution session after due process filing</td><td><strong>Within 15 days</strong></td></tr>
+          <tr><td>Resolution period before hearing</td><td><strong>30 days</strong></td></tr>
+          <tr><td>Due process statute of limitations</td><td><strong>2 years</strong></td></tr>
+          <tr><td>CDE complaint investigation</td><td><strong>60 calendar days</strong></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128220;</span> Key Legal Citations Reference</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Right / Requirement</th><th>Citation</th></tr></thead>
+        <tbody>
+          <tr><td>Free Appropriate Public Education (FAPE)</td><td>20 U.S.C. &sect;1401(9); 34 C.F.R. &sect;300.17</td></tr>
+          <tr><td>Least Restrictive Environment (LRE)</td><td>20 U.S.C. &sect;1412(a)(5); 34 C.F.R. &sect;300.114</td></tr>
+          <tr><td>Meaningful Educational Benefit</td><td><em>Endrew F. v. Douglas County</em> (2017), 137 S. Ct. 988</td></tr>
+          <tr><td>LRE Four-Factor Test (9th Circuit)</td><td><em>Sacramento City USD v. Rachel H.</em> (1994), 14 F.3d 1398</td></tr>
+          <tr><td>Parent Participation Rights</td><td>34 C.F.R. &sect;300.322</td></tr>
+          <tr><td>Prior Written Notice</td><td>34 C.F.R. &sect;300.503</td></tr>
+          <tr><td>Procedural Safeguards</td><td>34 C.F.R. &sect;300.504</td></tr>
+          <tr><td>Independent Educational Evaluation</td><td>34 C.F.R. &sect;300.502</td></tr>
+          <tr><td>Assessment Timeline (California)</td><td>Cal. Ed. Code &sect;56344(a)</td></tr>
+          <tr><td>Assessment Plan 15-Day Requirement</td><td>Cal. Ed. Code &sect;56321(a)</td></tr>
+          <tr><td>IEP Meeting Notice (10 days)</td><td>Cal. Ed. Code &sect;56341.5(c)</td></tr>
+          <tr><td>Audio Recording of IEP Meetings</td><td>Cal. Ed. Code &sect;56341.1(g)</td></tr>
+          <tr><td>Stay-Put / Pendency</td><td>20 U.S.C. &sect;1415(j)</td></tr>
+          <tr><td>Child Find</td><td>34 C.F.R. &sect;300.111</td></tr>
+          <tr><td>All Areas of Suspected Disability</td><td>34 C.F.R. &sect;300.304(c)(4)</td></tr>
+          <tr><td>CA Autism Insurance Mandate</td><td>Cal. Health &amp; Safety Code &sect;1374.73</td></tr>
+          <tr><td>Lanterman Act</td><td>Cal. Welfare &amp; Institutions Code &sect;&sect;4500-4846</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: IEP TOOLKIT ===== -->
+<section class="section" id="toolkit">
+  <h2 class="section-title">IEP Toolkit: Goals, Accommodations &amp; Services</h2>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127919;</span> Sample IEP Goals by Area</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>Use these as starting points when developing IEP goals. All goals should be individualized to your child.</p>
+
+      <div class="goal-category">
+        <h4>Social Communication (4 goals)</h4>
+        <ul>
+          <li>[Child] will initiate a social interaction with a peer (greeting, asking to play, commenting) independently in 4 out of 5 opportunities across settings.</li>
+          <li>[Child] will maintain a reciprocal conversation of 3+ exchanges on a topic of mutual interest with a peer in 4 out of 5 opportunities.</li>
+          <li>[Child] will identify and respond appropriately to nonverbal social cues (facial expressions, body language, tone of voice) in 4 out of 5 observed opportunities.</li>
+          <li>[Child] will use a repair strategy (asking for clarification, rephrasing) when a communication breakdown occurs in 3 out of 4 opportunities.</li>
+        </ul>
+      </div>
+
+      <div class="goal-category">
+        <h4>Pragmatic Language (2 goals)</h4>
+        <ul>
+          <li>[Child] will use appropriate topic maintenance, turn-taking, and active listening skills during group discussions in 4 out of 5 opportunities.</li>
+          <li>[Child] will demonstrate understanding of figurative language (idioms, metaphors, sarcasm) by correctly interpreting meaning in 4 out of 5 presented examples.</li>
+        </ul>
+      </div>
+
+      <div class="goal-category">
+        <h4>Emotional Regulation (3 goals)</h4>
+        <ul>
+          <li>[Child] will independently identify and label their emotional state using a visual scale or tool in 4 out of 5 opportunities.</li>
+          <li>[Child] will use a pre-taught coping strategy (deep breathing, requesting a break, calm-down space) when experiencing frustration or anxiety, reducing [target behavior] from [baseline] to [target].</li>
+          <li>[Child] will independently transition between activities/settings with no more than one verbal prompt in 4 out of 5 transitions.</li>
+        </ul>
+      </div>
+
+      <div class="goal-category">
+        <h4>Executive Functioning (3 goals)</h4>
+        <ul>
+          <li>[Child] will independently use a visual schedule or planner to organize and complete daily tasks in 4 out of 5 school days.</li>
+          <li>[Child] will break a multi-step assignment into component parts and complete each step with no more than one prompt in 3 out of 4 opportunities.</li>
+          <li>[Child] will independently initiate and complete a classroom assignment within the expected timeframe in 4 out of 5 opportunities.</li>
+        </ul>
+      </div>
+
+      <div class="goal-category">
+        <h4>Sensory Processing (2 goals)</h4>
+        <ul>
+          <li>[Child] will independently use a sensory strategy (sensory break, fidget tool, noise-canceling headphones) to maintain regulation during classroom activities for [duration].</li>
+          <li>[Child] will request a sensory break or accommodation when feeling overwhelmed, rather than [maladaptive behavior], in 4 out of 5 opportunities.</li>
+        </ul>
+      </div>
+
+      <div class="goal-category">
+        <h4>Adaptive Behavior / Daily Living (2 goals)</h4>
+        <ul>
+          <li>[Child] will independently manage personal belongings (backpack, materials) upon arrival and dismissal in 4 out of 5 school days.</li>
+          <li>[Child] will independently navigate the lunch routine (ordering/unpacking, eating, cleaning up) in 4 out of 5 school days.</li>
+        </ul>
+      </div>
+
+      <div class="goal-category">
+        <h4>Academic Considerations</h4>
+        <ul>
+          <li><strong>Reading comprehension:</strong> Inference, perspective-taking in literature</li>
+          <li><strong>Written expression:</strong> Organizing ideas, elaborating, flexible thinking</li>
+          <li><strong>Math problem-solving:</strong> Word problems, showing work, flexible strategies</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128203;</span> Accommodations Checklist by Category</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>Environmental Accommodations (6)</h4>
+      <ul>
+        <li>Preferential seating (away from distractions, near teacher, or per student preference)</li>
+        <li>Reduced visual and auditory clutter in the classroom</li>
+        <li>Access to a quiet/calm space for breaks or regulation</li>
+        <li>Noise-canceling headphones or earplugs</li>
+        <li>Flexible seating options (wobble stool, standing desk)</li>
+        <li>Consistent, predictable classroom routines</li>
+      </ul>
+
+      <h4>Instructional Accommodations (11)</h4>
+      <ul>
+        <li>Visual schedules and advance notice of schedule changes</li>
+        <li>Visual supports (graphic organizers, visual timers, written instructions)</li>
+        <li>Chunking of assignments and instructions</li>
+        <li>Extended time for assignments and tests</li>
+        <li>Reduced homework load or modified assignments (if appropriate)</li>
+        <li>Advance notice of transitions with countdowns or timers</li>
+        <li>Priming/pre-teaching of new material</li>
+        <li>Copy of teacher notes or guided notes</li>
+        <li>Preferential grouping for cooperative learning activities</li>
+        <li>Check-ins for comprehension</li>
+        <li>Multiple means of demonstrating knowledge</li>
+      </ul>
+
+      <h4>Social/Behavioral Supports (10)</h4>
+      <ul>
+        <li>Social skills instruction (individual or small group)</li>
+        <li>Social narratives (Social Stories) for challenging situations</li>
+        <li>Structured/facilitated peer interactions (lunch bunch, buddy system)</li>
+        <li>Access to a trusted adult for check-ins</li>
+        <li>Behavior Intervention Plan (BIP) based on Functional Behavior Assessment</li>
+        <li>Positive behavior support strategies</li>
+        <li>Token economy or reinforcement system aligned with interests</li>
+        <li>Sensory diet developed by occupational therapist</li>
+        <li>De-escalation plan for crisis situations</li>
+        <li>Anti-bullying supports and social monitoring</li>
+      </ul>
+
+      <h4>Communication Supports (5)</h4>
+      <ul>
+        <li>Visual communication supports (picture schedules, communication boards)</li>
+        <li>Augmentative and Alternative Communication (AAC) devices if needed</li>
+        <li>Extra processing time for verbal instructions</li>
+        <li>Written or visual instructions in addition to verbal</li>
+        <li>Social scripts for common situations</li>
+      </ul>
+
+      <h4>Assessment Accommodations (6)</h4>
+      <ul>
+        <li>Extended time on tests</li>
+        <li>Testing in a separate/small group setting</li>
+        <li>Breaks during testing</li>
+        <li>Read-aloud for non-reading tests</li>
+        <li>Use of calculator or other tools as appropriate</li>
+        <li>Alternative response formats</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#9989;</span> Related Services Checklist (9 Services)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p>Consider whether each of these should be in your child's IEP:</p>
+      <ol>
+        <li><strong>Speech-Language Therapy</strong> (individual and/or group, targeting pragmatic language)</li>
+        <li><strong>Occupational Therapy</strong> (sensory processing, fine motor, self-regulation)</li>
+        <li><strong>Applied Behavior Analysis (ABA)</strong> services or behavioral support</li>
+        <li><strong>Counseling</strong> (individual or group &mdash; anxiety, social skills, self-advocacy)</li>
+        <li><strong>Adaptive Physical Education (APE)</strong> if motor/coordination needs exist</li>
+        <li><strong>Assistive Technology</strong> evaluation and services</li>
+        <li><strong>Transportation</strong> (including specialized transportation if needed)</li>
+        <li><strong>1:1 Aide / Paraprofessional Support</strong> (safety, behavioral support, or curriculum access)</li>
+        <li><strong>Parent Training</strong> in strategies to support generalization of skills at home</li>
+      </ol>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: ADVOCATES & SUPPORT ===== -->
+<section class="section" id="advocates">
+  <h2 class="section-title">Advocates &amp; Support Network</h2>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#9878;&#65039;</span> Special Education Attorneys (South Bay / LA)</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Firm / Attorney</th><th>Location</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Janzen Malloy LLP</strong></td><td>Long Beach</td><td>Represents families in SpEd matters throughout Southern CA. <a href="https://www.janzenmalloy.com/" target="_blank">janzenmalloy.com</a></td></tr>
+          <tr><td><strong>Rosenfeld &amp; Berger LLP</strong></td><td>Los Angeles</td><td>SpEd and disability rights. Known for complex IEP disputes and due process.</td></tr>
+          <tr><td><strong>Law Offices of Regina Sully</strong></td><td>South Bay area</td><td>SpEd advocacy and due process.</td></tr>
+          <tr><td><strong>Disability Rights Legal Center (DRLC)</strong></td><td>Los Angeles</td><td>Legal services and advocacy for people with disabilities. <a href="https://www.drlcenter.org/" target="_blank">drlcenter.org</a></td></tr>
+          <tr><td><strong>Learning Rights Law Center</strong></td><td>Los Angeles</td><td>Nonprofit, free legal representation for low-income families. <a href="https://www.learningrights.org/" target="_blank">learningrights.org</a></td></tr>
+          <tr><td><strong>Public Counsel</strong></td><td>Los Angeles</td><td>Nonprofit, free legal assistance for qualifying families. <a href="https://www.publiccounsel.org/" target="_blank">publiccounsel.org</a></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128101;</span> Non-Attorney Advocates &amp; Parent Training</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Organization</th><th>Services</th><th>Contact</th></tr></thead>
+        <tbody>
+          <tr><td><strong>IEP Action</strong></td><td>IEP support and advocacy for families in Southern CA</td><td><a href="https://www.iepaction.com/" target="_blank">iepaction.com</a></td></tr>
+          <tr><td><strong>Parents Helping Parents</strong></td><td>Advocacy support and training for SpEd families</td><td>Search COPAA directory</td></tr>
+          <tr><td><strong>TASK (Team of Advocates for Special Kids)</strong></td><td>Free training, information, and support for families of children with disabilities</td><td>Anaheim &mdash; <a href="https://www.taskca.org/" target="_blank">taskca.org</a></td></tr>
+          <tr><td><strong>Disability Rights California (DRC)</strong></td><td>California's Protection &amp; Advocacy organization. Information, referrals, and in some cases direct legal representation.</td><td><a href="tel:8007765746">(800) 776-5746</a> &mdash; LA Office: <a href="tel:2132138000">(213) 213-8000</a> &mdash; <a href="https://www.disabilityrightsca.org/" target="_blank">disabilityrightsca.org</a></td></tr>
+          <tr><td><strong>COPAA</strong></td><td>National directory of SpEd attorneys and advocates</td><td><a href="https://www.copaa.org/" target="_blank">copaa.org</a></td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128153;</span> Parent Support Groups</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>Local Groups (South Bay)</h4>
+      <ul>
+        <li><strong>South Bay Special Needs Support Group</strong> &mdash; meets in Torrance/South Bay area; check local libraries and community centers</li>
+        <li><strong>El Segundo Parent Support</strong> &mdash; check with ESUSD SpEd department, ES Public Library, and ES Recreation &amp; Parks</li>
+        <li><strong>Beach Cities Health District</strong> &mdash; Redondo Beach; various health/wellness programs; may offer or connect with SpEd support groups. <a href="https://www.bchd.org/" target="_blank">bchd.org</a></li>
+        <li><strong>Autism Society of LA</strong> &mdash; periodic support groups throughout LA County; check for South Bay meetings. <a href="https://www.autismla.org/" target="_blank">autismla.org</a></li>
+        <li><strong>El Segundo PTA / SEPTA</strong> &mdash; check with ESUSD for parent groups focused on special education</li>
+      </ul>
+      <h4>Online Communities</h4>
+      <ul>
+        <li><strong>South Bay Autism Parents</strong> (Facebook group)</li>
+        <li><strong>South Bay Special Needs Families</strong> (Facebook group)</li>
+        <li><strong>El Segundo Parents</strong> (Facebook, Nextdoor)</li>
+        <li><strong>IEP/SpEd Support Groups for California Parents</strong> (various online groups)</li>
+        <li><strong>Reddit:</strong> r/autism, r/autism_parenting</li>
+        <li><strong>Wrong Planet:</strong> wrongplanet.net (online community for autistic individuals)</li>
+      </ul>
+      <h4>National Organizations</h4>
+      <table class="data-table">
+        <thead><tr><th>Organization</th><th>Focus</th><th>Website</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Autism Society of America</strong></td><td>Advocacy, information, support</td><td>autism-society.org</td></tr>
+          <tr><td><strong>Autism Speaks</strong></td><td>Resources, toolkits, advocacy. Resource guide searchable by zip code.</td><td>autismspeaks.org</td></tr>
+          <tr><td><strong>ASAN</strong></td><td>Autistic-led advocacy and resources</td><td>autisticadvocacy.org</td></tr>
+          <tr><td><strong>FEAT of LA</strong></td><td>Parent education, support, evidence-based treatments</td><td>feat.org</td></tr>
+          <tr><td><strong>CASE</strong></td><td>Free SpEd advocacy (SF-based, serves statewide)</td><td>caseadvocacy.org</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128153;</span> Regional Center Contacts</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Center</th><th>Phone</th><th>Website</th><th>Serves</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Harbor Regional Center</strong></td><td><a href="tel:3105401711">(310) 540-1711</a></td><td><a href="https://www.harborrc.org/" target="_blank">harborrc.org</a></td><td>South Bay including El Segundo</td></tr>
+          <tr><td><strong>Westside Regional Center</strong></td><td><a href="tel:3102584000">(310) 258-4000</a></td><td><a href="https://www.westsiderc.org/" target="_blank">westsiderc.org</a></td><td>West LA, Culver City area</td></tr>
+          <tr><td><strong>DDS RC Lookup</strong></td><td></td><td><a href="https://www.dds.ca.gov/rc/listings/" target="_blank">dds.ca.gov/rc/listings</a></td><td>Find your assigned RC</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: FINAL ANALYSIS ===== -->
+<section class="section" id="analysis">
+  <h2 class="section-title">Final Analysis &amp; Ratings</h2>
+
+  <div class="card open">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128203;</span> The Honest Assessment</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <p><strong>ESUSD is likely adequate for a child with milder autism support needs</strong> (Level 1) who can participate in general education with accommodations and pull-out services. The small district means teachers may know your child personally.</p>
+      <p><strong>ESUSD may struggle to serve a child with more significant support needs</strong> (Level 2-3). The district does not appear to operate dedicated autism classrooms, and its small size limits specialized programs. In such cases, the district would likely need to place your child at a non-public school (NPS) at district expense.</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#11088;</span> Category Ratings</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <table class="data-table">
+        <thead><tr><th>Category</th><th>Rating</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Academic Quality (General)</td><td><span class="rating rating-strong">Strong</span></td><td>73-79% proficiency across levels</td></tr>
+          <tr><td>SpEd Transparency</td><td><span class="rating rating-weak">Weak</span></td><td>Little public info about SPED programs</td></tr>
+          <tr><td>Autism-Specific Programs</td><td><span class="rating rating-unknown">Unknown / Likely Limited</span></td><td>No documented autism SDCs or BCBAs</td></tr>
+          <tr><td>Inclusion Support</td><td><span class="rating rating-unknown">Unknown</span></td><td>No data on LRE or inclusion practices</td></tr>
+          <tr><td>Small District Advantages</td><td><span class="rating rating-moderate">Moderate</span></td><td>Personal relationships, fewer resources</td></tr>
+          <tr><td>SELPA Resources</td><td><span class="rating rating-moderate">Moderate</span></td><td>Large SELPA, but ESUSD is small member</td></tr>
+          <tr><td>Legal Track Record</td><td><span class="rating rating-moderate">Mixed</span></td><td>Proactive on assessment (2 cases filed by district)</td></tr>
+          <tr><td>Transition Planning</td><td><span class="rating rating-unknown">Unknown</span></td><td>No public data on SWD graduation rates or post-secondary outcomes</td></tr>
+          <tr><td>Parent Advocacy Environment</td><td><span class="rating rating-moderate">Likely Positive</span></td><td>Affluent, engaged community; no visible SPED parent groups</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#127979;</span> Per-School Impact Narratives</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <h4>Elementary (K-5): What Your Daughter's Experience Will Likely Look Like</h4>
+      <p><strong>If she has mild-moderate support needs:</strong> She will likely be placed in gen ed with an IEP. Pull-out services (speech, OT) provided per IEP. May receive RSP support. A 1:1 aide may be provided if documented. Small school environment is positive &mdash; teachers will know her. Social challenges will emerge but are more manageable in elementary. <strong>Main risk:</strong> Teachers may not have deep autism expertise; support may be well-intentioned but generic.</p>
+      <p><strong>If she has significant support needs:</strong> District may not have an appropriate in-house placement. May be placed in an SDC that is not autism-specific. Real possibility of NPS placement (Kayne ERAS, Carousel School, The Help Group). NPS means leaving the neighborhood school but receiving specialized instruction. <strong>Main risk:</strong> Inappropriate placement in a program not designed for autism; insufficient behavioral support.</p>
+      <p><strong>Recommendation:</strong> Center Street may be slightly better due to smaller size and STEM focus. But <strong>ask the Director of Special Education which campus has the stronger SpEd team.</strong></p>
+
+      <h4>Middle School (6-8): Highest-Risk Transition Period</h4>
+      <p><strong>Likely experience:</strong> The shift from one teacher to multiple will be disorienting. Social dynamics intensify &mdash; cliques form, bullying peaks. Executive functioning demands increase. Sensory overload from hallway transitions, crowded lunch. If stable in elementary, middle school may destabilize things.</p>
+      <p><strong>Likely supports available:</strong> IEP accommodations, pull-out services, possibly a resource class period.</p>
+      <p><strong>Likely gaps:</strong> No autism-specific social skills group (unless in IEP), limited structured lunch support, gen ed teachers with 150+ students, reactive bullying intervention.</p>
+      <p><strong>Recommendation:</strong> Begin transition planning in 4th-5th grade. Request a formal transition IEP. If she struggles significantly, seriously consider NPS or smaller alternative. Monitor closely during 6th grade.</p>
+
+      <h4>High School (9-12): ESHS vs. Da Vinci</h4>
+      <p><strong>At El Segundo High:</strong> Academically strong (#105 in CA) &mdash; good for college-bound autistic students. Largest school (1,290) &mdash; most demanding socially/sensorily. Transition planning required by 16. Electives may match interests. Self-advocacy becomes critical.</p>
+      <p><strong>At Da Vinci Schools:</strong> Project-based learning may be better for hands-on learners. Smaller environments. RISE specifically serves students who struggled in traditional settings. Has full SpEd continuum. Contact: Dr. Lynn Rodriguez, lrodriguez@davincischools.org</p>
+      <p><strong>Recommendation:</strong> If academically strong and socially coping, ESHS can work with robust IEP. If traditional environment is overwhelming, <strong>Da Vinci is a compelling local alternative.</strong> For specialized therapeutic environment, NPS remains an option (The Help Group's Village Glen or STEM3 Academy).</p>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" onclick="toggleCard(this)">
+      <h3><span>&#128680;</span> Red Flags &amp; Green Flags</h3>
+      <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+    </div>
+    <div class="card-body"><div class="card-content">
+      <div class="flag-box red">
+        <h4>Red Flags to Watch For</h4>
+        <ul>
+          <li><strong>&ldquo;We don't have a program for that&rdquo;</strong> &mdash; Not a legal justification. District must provide what your child needs.</li>
+          <li><strong>One-size-fits-all IEP</strong> &mdash; If it doesn't specifically address autism-related needs, push back.</li>
+          <li><strong>Resistance to assessments</strong> &mdash; Demand Prior Written Notice if they refuse.</li>
+          <li><strong>Offering only what they have</strong> &mdash; IEP must drive placement, not the reverse.</li>
+          <li><strong>Pushing restrictive placement without trying supports first</strong></li>
+          <li><strong>No data on progress</strong> &mdash; If they can't show data, that's a problem.</li>
+        </ul>
+      </div>
+      <div class="flag-box green">
+        <h4>Green Flags</h4>
+        <ul>
+          <li>Trained staff with autism-specific expertise</li>
+          <li>BCBA on staff or contracted</li>
+          <li>Willingness to assess comprehensively</li>
+          <li>Collaboration with outside providers</li>
+          <li>Individualized IEP tailored to your child's specific needs</li>
+          <li>Data-driven progress monitoring with regular collection</li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION: ACTION PLAN ===== -->
+<section class="section" id="action-plan">
+  <h2 class="section-title">Your Action Plan</h2>
+
+  <div class="overall-progress">
+    <h3>Overall Progress</h3>
+    <div class="big-progress-track"><div class="big-progress-fill" id="bigProgressFill" style="width:0%"></div></div>
+    <div class="big-progress-label" id="bigProgressLabel">0 of 18 action items completed</div>
+  </div>
+
+  <div class="phase-tabs">
+    <button class="phase-tab active" onclick="showPhase('immediate')">Immediate</button>
+    <button class="phase-tab" onclick="showPhase('30day')">Within 30 Days</button>
+    <button class="phase-tab" onclick="showPhase('60day')">Within 60 Days</button>
+    <button class="phase-tab" onclick="showPhase('ongoing')">Ongoing</button>
+  </div>
+
+  <ul class="checklist" id="checklist-immediate">
+    <li data-key="action-1" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Call ESUSD's Special Education Director</div><div class="check-detail"><a href="tel:3106152650">(310) 615-2650</a> &mdash; Ask: What autism-specific programs exist? Do you employ BCBAs? What is the continuum of placements?</div></div>
+    </li>
+    <li data-key="action-2" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Contact Harbor Regional Center</div><div class="check-detail"><a href="tel:3105401711">(310) 540-1711</a> &mdash; Request intake appointment for assessment. Free. Do this NOW &mdash; wait times can be long.</div></div>
+    </li>
+    <li data-key="action-3" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Start your documentation binder</div><div class="check-detail">Collect: medical/diagnostic records, previous school records, private therapy reports, your own observations in writing.</div></div>
+    </li>
+    <li data-key="action-4" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Determine your child's support level</div><div class="check-detail">Review the Decision Guide section and determine whether to pursue ESUSD enrollment directly or consult an advocate first.</div></div>
+    </li>
+  </ul>
+
+  <ul class="checklist hidden" id="checklist-30day">
+    <li data-key="action-5" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Submit written assessment request to ESUSD</div><div class="check-detail">Use the template in the Rights section. Request ALL areas. Send via certified mail or email with read receipt. Triggers 15-day timeline.</div></div>
+    </li>
+    <li data-key="action-6" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Visit the schools</div><div class="check-detail">Arrange observations at each campus. Assess: physical environment (noise, lighting, space), SpEd classrooms, staff. Use the Questions to Ask lists from the School Guide.</div></div>
+    </li>
+    <li data-key="action-7" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Attend a Southwest SELPA CAC meeting</div><div class="check-detail"><a href="tel:3106805770">(310) 680-5770</a> or swselpa.org/cac &mdash; Meet other parents, learn about available programs.</div></div>
+    </li>
+    <li data-key="action-8" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Pull ESUSD data from CDE DataQuest and CA School Dashboard</div><div class="check-detail">Focus on SWD subgroup performance, LRE data, suspension rates. Follow the Dashboard Walkthrough in the Compliance section.</div></div>
+    </li>
+  </ul>
+
+  <ul class="checklist hidden" id="checklist-60day">
+    <li data-key="action-9" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Consult with a special education advocate or attorney</div><div class="check-detail">Even one consultation can dramatically improve IEP outcomes. See Advocates section for local contacts.</div></div>
+    </li>
+    <li data-key="action-10" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">File Public Records Act requests with ESUSD</div><div class="check-detail">Request: autism student count by placement type, NPS placements, SpEd staffing with qualifications, due process filings (5 yrs), CDE compliance reports.</div></div>
+    </li>
+    <li data-key="action-11" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Check health insurance for ABA coverage (SB 946)</div><div class="check-detail">If state-regulated plan, ABA must be covered with no cap. Get referral from physician. Contact providers: CARD, Behavior Frontiers, AST.</div></div>
+    </li>
+    <li data-key="action-12" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Search OAH and OCR databases for ESUSD complaint history</div><div class="check-detail">Check OAH decisions and OCR complaints. Links in the Compliance section.</div></div>
+    </li>
+    <li data-key="action-13" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Explore Da Vinci Schools if considering high school</div><div class="check-detail">Contact Dr. Lynn Rodriguez at lrodriguez@davincischools.org. Visit campus. Ask about SpEd services and how IEPs are implemented.</div></div>
+    </li>
+  </ul>
+
+  <ul class="checklist hidden" id="checklist-ongoing">
+    <li data-key="action-14" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Document everything</div><div class="check-detail">Every meeting, call, email, observation. Note dates, times, names. Follow up verbal conversations with confirmation emails.</div></div>
+    </li>
+    <li data-key="action-15" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Connect with other families</div><div class="check-detail">Local parent groups, online communities, Autism Society of LA, South Bay groups.</div></div>
+    </li>
+    <li data-key="action-16" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Monitor your child's progress regularly</div><div class="check-detail">Request data on IEP goals. Compare progress reports against goals. If progress stalls, request an IEP meeting.</div></div>
+    </li>
+    <li data-key="action-17" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Request IEP meetings whenever you have concerns</div><div class="check-detail">District has 30 days to respond to your written request. Don't wait for the annual review.</div></div>
+    </li>
+    <li data-key="action-18" onclick="toggleCheck(this)">
+      <div class="check-box"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="check-label">Plan ahead for major transitions</div><div class="check-detail">Elementary to middle school (start planning in 4th-5th grade), middle to high school, and high school to post-secondary (transition plan by age 16).</div></div>
+    </li>
+  </ul>
+</section>
+
+<!-- ===== SECTION: RESOURCES FOOTER ===== -->
+<section class="section" id="resources">
+  <div class="footer">
+    <h3>Resources &amp; Contacts Directory</h3>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Key Contacts</h4>
+        <a href="tel:3106152650">ESUSD SpEd: (310) 615-2650</a>
+        <a href="tel:3105401711">Harbor RC: (310) 540-1711</a>
+        <a href="tel:3106805770">SW SELPA: (310) 680-5770</a>
+        <a href="tel:8007765746">Disability Rights CA: (800) 776-5746</a>
+        <a href="tel:9162630880">OAH: (916) 263-0880</a>
+        <a href="tel:9163273800">CDE SpEd: (916) 327-3800</a>
+        <a href="tel:3102584000">Westside RC: (310) 258-4000</a>
+      </div>
+      <div class="footer-col">
+        <h4>Essential Websites</h4>
+        <a href="https://www.elsegundousd.net/" target="_blank">ESUSD Website</a>
+        <a href="https://swselpa.org/" target="_blank">Southwest SELPA</a>
+        <a href="https://www.harborrc.org/" target="_blank">Harbor Regional Center</a>
+        <a href="https://www.caschooldashboard.org/" target="_blank">CA School Dashboard</a>
+        <a href="https://dq.cde.ca.gov/dataquest/" target="_blank">CDE DataQuest</a>
+        <a href="https://www.disabilityrightsca.org/" target="_blank">Disability Rights CA</a>
+        <a href="https://www.cde.ca.gov/sp/se/ds/npssearch.asp" target="_blank">CDE NPS Search</a>
+      </div>
+      <div class="footer-col">
+        <h4>Advocacy &amp; Legal</h4>
+        <a href="https://www.copaa.org/" target="_blank">COPAA (Attorney Directory)</a>
+        <a href="https://www.wrightslaw.com/" target="_blank">Wrightslaw</a>
+        <a href="https://www.autismla.org/" target="_blank">Autism Society of LA</a>
+        <a href="https://www.autisticadvocacy.org/" target="_blank">ASAN</a>
+        <a href="https://www.davincischools.org/" target="_blank">Da Vinci Schools</a>
+        <a href="https://www.learningrights.org/" target="_blank">Learning Rights Law Center</a>
+      </div>
+      <div class="footer-col">
+        <h4>Essential Reading</h4>
+        <a href="https://www.disabilityrightsca.org/publications" target="_blank">SERR Guide (DRC)</a>
+        <a href="https://www.cde.ca.gov/sp/se/" target="_blank">CDE Parent Guide to SpEd</a>
+        <a href="https://www.wrightslaw.com/" target="_blank">Wrightslaw</a>
+        <a href="https://www.understood.org/" target="_blank">Understood.org</a>
+        <a href="https://www.parentcenterhub.org/" target="_blank">Center for Parent Info (CPIR)</a>
+      </div>
+      <div class="footer-col">
+        <h4>NPS &amp; Therapy</h4>
+        <a href="https://www.thehelpgroup.org/" target="_blank">The Help Group</a>
+        <a href="https://www.centerforautism.com/" target="_blank">CARD</a>
+        <a href="https://www.behaviorfrontiers.com/" target="_blank">Behavior Frontiers</a>
+        <a href="https://www.ecf.net/" target="_blank">Kayne ERAS / ECF</a>
+        <a href="https://www.autismspectrumtherapies.com/" target="_blank">Autism Spectrum Therapies</a>
+      </div>
+      <div class="footer-col">
+        <h4>State Agencies</h4>
+        <a href="https://www.cde.ca.gov/sp/se/" target="_blank">CDE Special Education</a>
+        <a href="https://www.dgs.ca.gov/OAH" target="_blank">Office of Admin Hearings</a>
+        <a href="https://www.dds.ca.gov/" target="_blank">Dept of Developmental Services</a>
+        <a href="https://ocrcas.ed.gov/" target="_blank">OCR Complaint Database</a>
+      </div>
+    </div>
+    <div class="footer-note">
+      This guide is for informational purposes only and does not constitute legal advice. For legal guidance regarding your child's special education rights, consult a California special education attorney. Information compiled February 2026 from publicly available sources. Programs, staffing, and policies change &mdash; verify all information directly with providers.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// ===== CARD EXPAND/COLLAPSE =====
+function toggleCard(header) {
+  header.closest('.card').classList.toggle('open');
+}
+
+// ===== SIDEBAR TOGGLE (MOBILE) =====
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.querySelector('.overlay').classList.toggle('show');
+}
+
+// ===== ACTIVE NAV LINK =====
+const navLinks = document.querySelectorAll('.sidebar nav a');
+const sections = document.querySelectorAll('.section, .hero');
+
+function updateActiveNav() {
+  let current = '';
+  const offset = 160;
+  sections.forEach(s => {
+    if (s.getBoundingClientRect().top < offset) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActiveNav);
+
+// Close sidebar on nav click (mobile)
+navLinks.forEach(a => a.addEventListener('click', () => {
+  document.getElementById('sidebar').classList.remove('open');
+  document.querySelector('.overlay').classList.remove('show');
+}));
+
+// ===== PHASE TABS =====
+function showPhase(phase) {
+  document.querySelectorAll('.checklist').forEach(cl => cl.classList.add('hidden'));
+  document.getElementById('checklist-' + phase).classList.remove('hidden');
+  document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// ===== CHECKLIST WITH LOCALSTORAGE =====
+const STORAGE_KEY = 'el-segundo-sped-checklist-v2';
+
+function loadChecklist() {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  document.querySelectorAll('.checklist li[data-key]').forEach(li => {
+    if (saved[li.dataset.key]) li.classList.add('checked');
+  });
+  updateProgress();
+}
+
+function toggleCheck(li) {
+  li.classList.toggle('checked');
+  saveChecklist();
+  updateProgress();
+}
+
+function saveChecklist() {
+  const state = {};
+  document.querySelectorAll('.checklist li[data-key]').forEach(li => {
+    if (li.classList.contains('checked')) state[li.dataset.key] = true;
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function updateProgress() {
+  const total = document.querySelectorAll('.checklist li[data-key]').length;
+  const done = document.querySelectorAll('.checklist li[data-key].checked').length;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+  document.getElementById('bigProgressFill').style.width = pct + '%';
+  document.getElementById('bigProgressLabel').textContent = done + ' of ' + total + ' action items completed';
+
+  document.getElementById('sidebarProgress').style.width = pct + '%';
+  document.getElementById('sidebarProgressLabel').textContent = done + ' of ' + total + ' steps done';
+}
+
+// Init
+loadChecklist();
+</script>
+</body>
+</html>
